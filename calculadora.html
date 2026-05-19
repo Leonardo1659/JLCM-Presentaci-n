@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Super Calculadora Bros. - NES</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --sky-blue: #5C94FC;
+      --brick-red: #E75926;
+      --logo-orange: #ff5b00;
+      --block-yellow: #F7D018;
+      --pipe-green: #00a800;
+      --shadow: #000000;
+      --ground-orange: #d82800;
+    }
+
+    /* Estilos generales */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Press Start 2P', cursive;
+      scroll-behavior: smooth;
+      background-color: var(--sky-blue);
+    }
+
+    /* --- SECCIÓN 1: PANTALLA DE TÍTULO --- */
+    .title-screen {
+      height: 100vh;
+      width: 100%;
+      background-color: var(--sky-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .logo-box {
+      background-color: var(--logo-orange);
+      border: 8px solid #5c94fc;
+      outline: 6px solid var(--shadow);
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 15px 15px 0px rgba(0,0,0,0.2);
+    }
+
+    .logo-text {
+      color: #fce1c3;
+      line-height: 1.2;
+      text-shadow: 
+        4px 4px 0px var(--shadow),
+        8px 8px 0px rgba(0,0,0,0.3);
+    }
+
+    .logo-super { font-size: 35px; display: block; margin-bottom: 10px; }
+    .logo-main { font-size: 38px; display: block; }
+
+    .scroll-hint {
+      margin-top: 30px;
+      color: white;
+      font-size: 12px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* --- SECCIÓN 2: ZONA DE LA CALCULADORA --- */
+    .game-area {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background-image: 
+        linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px),
+        linear-gradient(0deg, var(--ground-orange) 40px, transparent 40px),
+        linear-gradient(white, white), linear-gradient(white, white),
+        linear-gradient(var(--pipe-green), var(--pipe-green));
+      background-size: 4px 4px, 4px 4px, 100% 100%, 80px 40px, 60px 20px, 120px 60px;
+      background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+      background-position: 0 0, 0 0, bottom, 10% 20%, 15% 15%, 85% 88%;
+    }
+
+    .calc-card {
+      background: var(--brick-red);
+      border: 6px solid var(--shadow);
+      box-shadow: 12px 12px 0px rgba(0,0,0,0.4);
+      width: 380px; /* Aumentado de 280px a 380px */
+      z-index: 10;
+    }
+
+    .display-box {
+      background: #9bbc0f; 
+      border: 4px solid var(--shadow);
+      padding: 15px; /* Más espacio interior */
+      margin: 20px;
+      text-align: right;
+      color: #0f380f;
+    }
+
+    #expresion { font-size: 10px; min-height: 12px; margin-bottom: 8px; opacity: 0.7; } /* Texto más grande */
+    #pantalla { font-size: 24px; word-wrap: break-word; } /* Texto principal más grande (de 14px a 24px) */
+
+    .grid-teclado {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px; /* Botones más separados */
+      padding: 0 20px 20px 20px;
+    }
+
+    .btn-calc {
+      height: 55px; /* Botones más altos (de 40px a 55px) */
+      border: 4px solid var(--shadow);
+      font-family: 'Press Start 2P', cursive;
+      font-size: 14px; /* Letra de botones más grande (de 8px a 14px) */
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset -4px -4px 0px rgba(0,0,0,0.2);
+    }
+
+    .btn-num { background: var(--block-yellow); color: var(--shadow); }
+    .btn-op { background: #ff911e; color: var(--shadow); }
+    .btn-special { background: #444; color: white; font-size: 10px; } /* Texto especial más grande */
+    .btn-igual { background: white; color: var(--shadow); grid-column: span 2; }
+    .btn-bin { background: #ffd700; font-size: 10px; } 
+    .btn-mirror { background: var(--pipe-green); color: white; font-size: 10px; } 
+    .btn-luck { background: #f7d018; box-shadow: inset 4px 4px 0 white, inset -4px -4px 0 #8a6d00; font-size: 12px;}
+
+    .btn-calc:active { transform: translate(3px, 3px); box-shadow: none; }
+  </style>
+</head>
+<body>
+
+  <section class="title-screen">
+    <div class="logo-box">
+      <div class="logo-text">
+        <span class="logo-super">SUPER</span>
+        <span class="logo-main">CALCULADORA<br>BROS.</span>
+      </div>
+    </div>
+    <div class="scroll-hint">▼ DESLIZA PARA JUGAR ▼</div>
+  </section>
+
+  <section class="game-area">
+    <div class="calc-card">
+      <div class="display-box">
+        <div id="expresion"></div>
+        <div id="pantalla">0</div>
+      </div>
+
+      <div class="grid-teclado">
+        <button class="btn-calc btn-special" onclick="limpiar()">CLR</button>
+        <button class="btn-calc btn-special" onclick="borrar()">DEL</button>
+        <button class="btn-calc btn-op" onclick="setOp('%')">%</button>
+        <button class="btn-calc btn-op" onclick="setOp('/')">÷</button>
+        
+        <button class="btn-calc btn-num" onclick="num('7')">7</button>
+        <button class="btn-calc btn-num" onclick="num('8')">8</button>
+        <button class="btn-calc btn-num" onclick="num('9')">9</button>
+        <button class="btn-calc btn-op" onclick="setOp('*')">×</button>
+        
+        <button class="btn-calc btn-num" onclick="num('4')">4</button>
+        <button class="btn-calc btn-num" onclick="num('5')">5</button>
+        <button class="btn-calc btn-num" onclick="num('6')">6</button>
+        <button class="btn-calc btn-op" onclick="setOp('-')">-</button>
+        
+        <button class="btn-calc btn-num" onclick="num('1')">1</button>
+        <button class="btn-calc btn-num" onclick="num('2')">2</button>
+        <button class="btn-calc btn-num" onclick="num('3')">3</button>
+        <button class="btn-calc btn-op" onclick="setOp('+')">+</button>
+        
+        <button class="btn-calc btn-num" style="grid-column: span 2;" onclick="num('0')">0</button>
+        <button class="btn-calc btn-num" onclick="punto()">.</button>
+        <button class="btn-calc btn-igual" onclick="igual()">=</button>
+
+        <button class="btn-calc btn-bin" onclick="binaryWarp()">BIN</button>
+        <button class="btn-calc btn-mirror" onclick="mirrorWorld()">MIR</button>
+        <button class="btn-calc btn-luck" onclick="luckyBlock()">[?]</button>
+        <button class="btn-calc btn-special" onclick="esPrimo()">PRM</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let a = '', b = '', op = '', reset = false;
+    const p = document.getElementById('pantalla');
+    const e = document.getElementById('expresion');
+
+    function render() {
+      p.innerText = (op === '' ? a : b) || '0';
+      e.innerText = op === '' ? '' : `${a} ${op} ${b}`;
+    }
+
+    function num(n) {
+      if(reset) { a = ''; b = ''; op = ''; reset = false; }
+      if(op === '') a += n; else b += n;
+      render();
+    }
+
+    function punto() {
+      if(op === '') { if(!a.includes('.')) a += (a===''?'0.':'.'); }
+      else { if(!b.includes('.')) b += (b===''?'0.':'.'); }
+      render();
+    }
+
+    function setOp(o) {
+      if(a === '') a = '0';
+      if(b !== '') igual();
+      op = o; reset = false;
+      render();
+    }
+
+    function igual() {
+      if(a === '' || b === '' || op === '') return;
+      let res = 0;
+      let n1 = parseFloat(a), n2 = parseFloat(b);
+      switch(op) {
+        case '+': res = n1 + n2; break;
+        case '-': res = n1 - n2; break;
+        case '*': res = n1 * n2; break;
+        case '/': res = n2 !== 0 ? n1 / n2 : 'Error'; break;
+        case '%': res = n1 % n2; break;
+      }
+      a = String(res); b = ''; op = ''; reset = true;
+      render();
+    }
+
+    function limpiar() { a = ''; b = ''; op = ''; reset = false; render(); }
+    function borrar() {
+      if(op === '') a = a.slice(0,-1); else b = b.slice(0,-1);
+      render();
+    }
+
+    function binaryWarp() {
+      let n = parseInt(p.innerText);
+      if (isNaN(n)) return;
+      a = n.toString(2); 
+      op = ''; b = ''; reset = true;
+      render();
+    }
+
+    function mirrorWorld() {
+      let n = p.innerText;
+      a = n.split('').reverse().join(''); 
+      op = ''; b = ''; reset = true;
+      render();
+    }
+
+    function luckyBlock() {
+      let r = Math.floor(Math.random() * 100) + 1;
+      if(op === '') a = String(r); else b = String(r);
+      render();
+    }
+
+    function esPrimo() {
+      let n = parseInt(p.innerText);
+      if(isNaN(n) || n < 2) { alert("No es primo"); return; }
+      for(let i = 2; i <= Math.sqrt(n); i++) {
+        if(n % i === 0) { alert(n + " no es primo"); return; }
+      }
+      alert("⭐ " + n + " ¡SÍ ES PRIMO!");
+    }
+  </script>
+</body>
+</html>
