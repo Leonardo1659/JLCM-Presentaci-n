@@ -24,7 +24,7 @@
             min-height: 100vh;
         }
 
-        .journal-container {
+        .contenedor-diario {
             width: 100%;
             max-width: 750px;
             box-sizing: border-box; 
@@ -46,10 +46,10 @@
             border-bottom: 2px solid #3e4431;
             margin-bottom: 30px;
             text-shadow: 2px 2px #000;
-            animation: glitch-flicker 4s infinite;
+            animation: parpadeo-glitch 4s infinite;
         }
 
-        @keyframes glitch-flicker {
+        @keyframes parpadeo-glitch {
             0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
                 opacity: 1;
                 text-shadow: 2px 2px #000, 0 0 10px rgba(139, 146, 116, 0.5);
@@ -60,7 +60,7 @@
             }
         }
 
-        .nav-menu {
+        .menu-navegacion {
             background: rgba(20, 23, 16, 0.98);
             border: 1px solid #5a6147;
             padding: 15px;
@@ -72,7 +72,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.8);
         }
 
-        .nav-menu ul {
+        .menu-navegacion ul {
             list-style: none;
             padding: 0;
             margin: 0;
@@ -82,7 +82,7 @@
             justify-content: center;
         }
 
-        .nav-menu a {
+        .menu-navegacion a {
             font-family: 'VT323', monospace;
             color: #8b9274;
             text-decoration: none;
@@ -90,12 +90,12 @@
             transition: 0.3s;
         }
 
-        .nav-menu a:hover {
+        .menu-navegacion a:hover {
             color: #f2f2f2;
             text-shadow: 0 0 5px #8b9274;
         }
 
-        .nav-menu a::before {
+        .menu-navegacion a::before {
             content: '► '; 
             color: #f2f2f2;
         }
@@ -111,7 +111,7 @@
             scroll-margin-top: 120px;
         }
 
-        .profile-header {
+        .encabezado-perfil {
             display: flex;
             gap: 25px;
             align-items: flex-start;
@@ -119,7 +119,7 @@
             flex-wrap: wrap; 
         }
 
-        .profile-img {
+        .imagen-perfil {
             width: 200px;
             height: 250px;
             object-fit: cover;
@@ -128,7 +128,7 @@
             box-shadow: 5px 5px 15px rgba(0,0,0,0.8);
         }
 
-        .data-list {
+        .lista-datos {
             list-style: none;
             padding: 0;
             font-size: 1.1em;
@@ -136,19 +136,19 @@
             min-width: 250px;
         }
 
-        .data-list li {
+        .lista-datos li {
             margin-bottom: 10px;
             border-bottom: 1px dotted #3e4431;
         }
 
-        .data-list b { color: #8b9274; text-transform: uppercase; }
+        .lista-datos b { color: #8b9274; text-transform: uppercase; }
 
-        .ia-box {
+        .caja-vision {
             text-align: center;
             margin: 20px 0;
         }
 
-        .ia-img {
+        .imagen-vision {
             width: 100%;
             max-height: 350px;
             object-fit: cover;
@@ -157,17 +157,17 @@
             transition: 0.5s;
         }
 
-        .ia-img:hover { opacity: 1; }
+        .imagen-vision:hover { opacity: 1; }
 
-        .skills-container {
+        .contenedor-habilidades {
             margin-top: 15px;
         }
 
-        .skill-item {
+        .item-habilidad {
             margin-bottom: 15px;
         }
 
-        .skill-name {
+        .nombre-habilidad {
             font-weight: bold;
             color: #d4d6c8;
             margin-bottom: 5px;
@@ -175,7 +175,7 @@
             font-size: 0.9em;
         }
 
-        .skill-bar {
+        .barra-habilidad {
             width: 100%;
             background: #1a1c14;
             border: 1px solid #3e4431;
@@ -184,22 +184,22 @@
             overflow: hidden;
         }
 
-        .skill-fill {
+        .relleno-habilidad {
             height: 100%;
             background: #8b9274;
             box-shadow: 0 0 10px #8b9274;
         }
 
-        .music-section {
+        .seccion-musica {
             background: rgba(0,0,0,0.3);
             padding: 20px;
             border-radius: 5px;
         }
 
-        .lyrics-container {
+        .contenedor-letra {
             font-size: 0.9em;
             line-height: 1.8;
-            max-height: 150px;
+            max-height: 250px;
             overflow-y: auto;
             padding: 15px;
             background: rgba(10,10,10,0.5);
@@ -207,7 +207,7 @@
             border: 1px solid #2d3321;
         }
 
-        .tiktok-wrapper {
+        .contenedor-tiktok {
             margin-top: 15px;
             display: flex;
             justify-content: center;
@@ -217,7 +217,7 @@
             border-radius: 5px;
         }
 
-        .tiktok-iframe {
+        .marco-tiktok {
             width: 100%;
             max-width: 325px;
             height: 580px;
@@ -225,7 +225,14 @@
             border-radius: 8px;
         }
 
-        .social-nav {
+        .texto-narrativo {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #aeb1a0;
+            text-align: justify;
+        }
+
+        .navegacion-social {
             display: flex;
             justify-content: center;
             gap: 15px;
@@ -233,7 +240,7 @@
             flex-wrap: wrap;
         }
 
-        .social-link {
+        .enlace-social {
             font-family: 'VT323', monospace;
             font-size: 1.5em;
             text-decoration: none;
@@ -244,12 +251,12 @@
             transition: 0.3s;
         }
 
-        .social-link:hover {
+        .enlace-social:hover {
             background: #8b9274;
             color: #1a1c14;
         }
 
-        .btn-subir {
+        .boton-subir {
             font-family: 'VT323', monospace;
             position: fixed;
             bottom: 30px;
@@ -266,7 +273,7 @@
             transition: 0.3s;
         }
 
-        .btn-subir:hover {
+        .boton-subir:hover {
             background: #d4d6c8;
             transform: scale(1.1);
         }
@@ -279,10 +286,10 @@
 </head>
 <body>
 
-<div class="journal-container">
+<div class="contenedor-diario">
     <h1 id="inicio">Superviviente: Javier Leonardo</h1>
 
-    <nav class="nav-menu">
+    <nav class="menu-navegacion">
         <ul>
             <li><a href="#datos">Datos</a></li>
             <li><a href="#pasatiempos">Pasatiempos</a></li>
@@ -294,9 +301,9 @@
         </ul>
     </nav>
 
-    <div class="profile-header">
-        <img src="https://lh3.googleusercontent.com/d/18Idyrg3a6HURYf1pihuOqI6gm-F7o_LS" alt="Mi foto de perfil" class="profile-img">
-        <ul class="data-list">
+    <div class="encabezado-perfil">
+        <img src="https://lh3.googleusercontent.com/d/18Idyrg3a6HURYf1pihuOqI6gm-F7o_LS" alt="Mi foto de perfil" class="imagen-perfil">
+        <ul class="lista-datos">
             <h2 id="datos" style="margin-top: 0;">Registro de Identidad</h2>
             <li><b>Nombre:</b> Javier Leonardo Conde Merma</li>
             <li><b>Edad:</b> 20 años</li>
@@ -310,90 +317,118 @@
 
     <section>
         <h2 id="pasatiempos">Rutina de Supervivencia</h2>
+        <p class="texto-narrativo">En este páramo desolado, mantener la mente ocupada es tan crucial como encontrar suministros para sobrevivir el día a día. Dedico mis horas de refugio a las siguientes actividades para no perder la cordura en medio del silencio:</p>
         <ul>
-            <li>Hacer doblaje de voz.</li>
-            <li>Creación de videos.</li>
-            <li>Elaboración de un videojuego de terror.</li>
+            <li>Hacer doblaje de voz (practicando modulaciones para transmisiones).</li>
+            <li>Creación y edición de registros en video.</li>
+            <li>Elaboración y programación de un videojuego de terror psicológico.</li>
         </ul>
     </section>
 
     <section>
         <h2 id="cancion">Cinta de Cassette Favorita</h2>
-        <div class="music-section">
-            <p><b>Título:</b> WHO IS IT</p>
-            <p><b>Enlace:</b> <a href="https://youtu.be/PfrV_6yWbEg?si=kHECgXcIMeGxTSzg" target="_blank" style="color: #8b9274;">[ REPRODUCIR VIDEO ]</a></p>
+        <div class="seccion-musica">
+            <p><b>Título de la cinta:</b> WHO IS IT (M.J.)</p>
+            <p><b>Enlace:</b> <a href="https://youtu.be/PfrV_6yWbEg?si=kHECgXcIMeGxTSzg" target="_blank" style="color: #8b9274;">[ REPRODUCIR CINTA EN LA RADIO ]</a></p>
             
             <h3>Letra Decodificada:</h3>
-            <div class="lyrics-container">
+            <div class="contenedor-letra">
                 I gave her money<br>
                 I gave her time<br>
                 I gave her everything<br>
                 Inside one heart could find<br><br>
+                
                 I gave her passion<br>
                 My very soul<br>
                 I gave her promises<br>
-                And secrets so untold...<br><br>
+                And secrets so untold<br><br>
+                
                 And she promised me forever<br>
                 And a day we'd live as one<br>
                 We made our vows<br>
                 We'd live a life anew<br><br>
-                (Who is it) it is a friend of mine?<br>
-                (Who is it) is it my brother?
+                
+                And she promised me in secret<br>
+                That she'd love me for all time<br>
+                It's a promise so untrue<br>
+                Tell me what will I do?<br><br>
+
+                And it doesn't seem to matter<br>
+                And it doesn't seem right<br>
+                'Cause the will has brought no fortune<br>
+                Still I cry alone at night<br><br>
+
+                Don't you judge of my composure<br>
+                'Cause I'm lying to myself<br>
+                And the reason why she left me<br>
+                Did she find in someone else?<br><br>
+
+                (Who is it?)<br>
+                It is a friend of mine<br>
+                (Who is it?)<br>
+                Is it my brother?<br>
+                (Who is it?)<br>
+                Somebody hurt my soul, now<br>
+                (Who is it?)<br>
+                I can't take this stuff no more
             </div>
         </div>
     </section>
 
     <section>
         <h2 id="mision">Objetivo a Largo Plazo</h2>
-        <div class="ia-box">
-            <img src="https://lh3.googleusercontent.com/d/1KmMfLksoD_FzAmdwAJgPurdTWat4BRW-" alt="Visión del Futuro" class="ia-img">
-            <p style="font-style: italic; margin-top: 10px;">"Buscando sobrevivir y crear en un mundo de suspenso."</p>
+        <div class="caja-vision">
+            <img src="https://lh3.googleusercontent.com/d/1KmMfLksoD_FzAmdwAJgPurdTWat4BRW-" alt="Visión del Futuro" class="imagen-vision">
+            <p style="font-style: italic; margin-top: 15px;">"Buscando sobrevivir y crear en un mundo de suspenso."</p>
+            <p class="texto-narrativo">Mi objetivo no es solo sobrevivir un día más, sino dejar una marca en este mundo fragmentado. A través de mis proyectos, busco crear experiencias inmersivas que conecten con los pocos supervivientes que quedan ahí fuera, demostrando que incluso en la oscuridad más profunda, el arte y la determinación pueden prevalecer.</p>
         </div>
     </section>
 
     <section>
         <h2 id="habilidades">Estado de Habilidades</h2>
-        <div class="skills-container">
-            <div class="skill-item">
-                <div class="skill-name">Doblaje de Voz [Nv. 8]</div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
+        <div class="contenedor-habilidades">
+            <div class="item-habilidad">
+                <div class="nombre-habilidad">Doblaje de Voz [Nv. 8]</div>
+                <div class="barra-habilidad"><div class="relleno-habilidad" style="width: 80%;"></div></div>
             </div>
-            <div class="skill-item">
-                <div class="skill-name">Creación de Videos [Nv. 7]</div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 70%;"></div></div>
+            <div class="item-habilidad">
+                <div class="nombre-habilidad">Creación de Videos [Nv. 7]</div>
+                <div class="barra-habilidad"><div class="relleno-habilidad" style="width: 70%;"></div></div>
             </div>
-            <div class="skill-item">
-                <div class="skill-name">Programación Python [Nv. 5]</div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 50%;"></div></div>
+            <div class="item-habilidad">
+                <div class="nombre-habilidad">Programación Python [Nv. 5]</div>
+                <div class="barra-habilidad"><div class="relleno-habilidad" style="width: 50%;"></div></div>
             </div>
-            <div class="skill-item">
-                <div class="skill-name">Desarrollo de Terror [Nv. 9]</div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+            <div class="item-habilidad">
+                <div class="nombre-habilidad">Desarrollo de Terror [Nv. 9]</div>
+                <div class="barra-habilidad"><div class="relleno-habilidad" style="width: 90%;"></div></div>
             </div>
         </div>
     </section>
 
     <section>
         <h2 id="inventario">Inventario Visual</h2>
-        <div class="music-section">
+        <div class="seccion-musica">
             <p><b>Archivo Destacado:</b> Doblaje de Voz (Prueba de Transmisión)</p>
-            <div class="tiktok-wrapper">
-                <iframe class="tiktok-iframe" src="https://www.tiktok.com/embed/v2/7536721563396181253" allowfullscreen></iframe>
+            <p class="texto-narrativo">Este es un fragmento recuperado de las antiguas redes de transmisión. Una prueba de modulación de voz registrada antes del colapso, manteniendo vivo el talento de interpretación.</p>
+            <p style="font-size: 0.9em; color: #8b9274; font-style: italic;">(Para verlo horizontal, toca el video y presiona el icono de pantalla completa que aparece adentro, luego rota tu dispositivo).</p>
+            <div class="contenedor-tiktok">
+                <iframe class="marco-tiktok" src="https://www.tiktok.com/embed/v2/7536721563396181253" allow="fullscreen; accelerometer; gyroscope; picture-in-picture"></iframe>
             </div>
         </div>
     </section>
 
     <section>
         <h2 id="redes">Frecuencias de Emisión</h2>
-        <div class="social-nav">
-            <a href="https://youtube.com/@16condejavier12?si=fNAx-kzs14RpOR51" class="social-link" target="_blank">YouTube</a>
-            <a href="https://www.tiktok.com/@dirkray1?_r=1&_t=ZS-96BnTtbUKdJ" class="social-link" target="_blank">TikTok</a>
-            <a href="https://www.facebook.com/share/1D9eZGLtKA/" class="social-link" target="_blank">Facebook</a>
+        <div class="navegacion-social">
+            <a href="https://youtube.com/@16condejavier12?si=fNAx-kzs14RpOR51" class="enlace-social" target="_blank">YouTube</a>
+            <a href="https://www.tiktok.com/@dirkray1?_r=1&_t=ZS-96BnTtbUKdJ" class="enlace-social" target="_blank">TikTok</a>
+            <a href="https://www.facebook.com/share/1D9eZGLtKA/" class="enlace-social" target="_blank">Facebook</a>
         </div>
     </section>
 </div>
 
-<a href="#inicio" class="btn-subir">▲</a>
+<a href="#inicio" class="boton-subir">▲</a>
 
 </body>
 </html>
