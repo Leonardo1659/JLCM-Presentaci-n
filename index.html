@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil de Superviviente: Javier Leonardo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=VT323&display=swap" rel="stylesheet">
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: #1a1c14;
             background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png'); 
             color: #d4d6c8;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Special Elite', monospace;
             margin: 0;
             padding: 20px;
             display: flex;
@@ -32,7 +37,8 @@
         }
 
         h1 {
-            font-size: 2.5em;
+            font-family: 'VT323', monospace;
+            font-size: 3em;
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 5px;
@@ -40,15 +46,69 @@
             border-bottom: 2px solid #3e4431;
             margin-bottom: 30px;
             text-shadow: 2px 2px #000;
+            animation: glitch-flicker 4s infinite;
+        }
+
+        @keyframes glitch-flicker {
+            0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+                opacity: 1;
+                text-shadow: 2px 2px #000, 0 0 10px rgba(139, 146, 116, 0.5);
+            }
+            20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+                opacity: 0.4;
+                text-shadow: none;
+            }
+        }
+
+        .nav-menu {
+            background: rgba(20, 23, 16, 0.98);
+            border: 1px solid #5a6147;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            position: sticky;
+            top: 10px;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.8);
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .nav-menu a {
+            font-family: 'VT323', monospace;
+            color: #8b9274;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #f2f2f2;
+            text-shadow: 0 0 5px #8b9274;
+        }
+
+        .nav-menu a::before {
+            content: '► '; 
+            color: #f2f2f2;
         }
 
         h2 {
+            font-family: 'VT323', monospace;
             background: #2d3321;
             padding: 5px 15px;
-            font-size: 1.2em;
+            font-size: 1.8em;
             text-transform: uppercase;
             border-left: 5px solid #8b9274;
             margin-top: 40px;
+            scroll-margin-top: 120px;
         }
 
         .profile-header {
@@ -99,21 +159,37 @@
 
         .ia-img:hover { opacity: 1; }
 
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+        .skills-container {
             margin-top: 15px;
         }
 
-        .skill-tag {
-            background: #3e4431;
-            padding: 10px 20px;
-            border-radius: 3px;
-            font-weight: bold;
-            color: #f2f2f2;
-            border: 1px solid #5a6147;
+        .skill-item {
+            margin-bottom: 15px;
         }
+
+        .skill-name {
+            font-weight: bold;
+            color: #d4d6c8;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        .skill-bar {
+            width: 100%;
+            background: #1a1c14;
+            border: 1px solid #3e4431;
+            border-radius: 2px;
+            height: 12px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: #8b9274;
+            box-shadow: 0 0 10px #8b9274;
+        }
+
         .music-section {
             background: rgba(0,0,0,0.3);
             padding: 20px;
@@ -131,6 +207,24 @@
             border: 1px solid #2d3321;
         }
 
+        .tiktok-wrapper {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            background: rgba(10,10,10,0.5);
+            padding: 10px;
+            border: 1px solid #2d3321;
+            border-radius: 5px;
+        }
+
+        .tiktok-iframe {
+            width: 100%;
+            max-width: 325px;
+            height: 580px;
+            border: none;
+            border-radius: 8px;
+        }
+
         .social-nav {
             display: flex;
             justify-content: center;
@@ -140,19 +234,41 @@
         }
 
         .social-link {
+            font-family: 'VT323', monospace;
+            font-size: 1.5em;
             text-decoration: none;
             color: #d4d6c8;
             border: 1px solid #3e4431;
             padding: 10px 25px;
             background: #252a1e;
             transition: 0.3s;
-            font-weight: bold;
-            text-transform: uppercase;
         }
 
         .social-link:hover {
             background: #8b9274;
             color: #1a1c14;
+        }
+
+        .btn-subir {
+            font-family: 'VT323', monospace;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #8b9274;
+            color: #1a1c14;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 1.5em;
+            border-radius: 50px;
+            border: 2px solid #1a1c14;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.8);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .btn-subir:hover {
+            background: #d4d6c8;
+            transform: scale(1.1);
         }
         
         ::-webkit-scrollbar { width: 5px; }
@@ -164,25 +280,36 @@
 <body>
 
 <div class="journal-container">
-    <h1>Mi Perfil Personal y Mis Gustos</h1>
+    <h1 id="inicio">Superviviente: Javier Leonardo</h1>
+
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="#datos">Datos</a></li>
+            <li><a href="#pasatiempos">Pasatiempos</a></li>
+            <li><a href="#cancion">Radio</a></li>
+            <li><a href="#mision">Visión</a></li>
+            <li><a href="#habilidades">Estado</a></li>
+            <li><a href="#inventario">Inventario</a></li>
+            <li><a href="#redes">Frecuencias</a></li>
+        </ul>
+    </nav>
 
     <div class="profile-header">
-        <img src="https://lh3.googleusercontent.com/d/18Idyrg3a6HURYf1pihuOqI6gm-F7o_LS" 
-            alt="Mi foto de perfil" class="profile-img">
+        <img src="https://lh3.googleusercontent.com/d/18Idyrg3a6HURYf1pihuOqI6gm-F7o_LS" alt="Mi foto de perfil" class="profile-img">
         <ul class="data-list">
-            <h2 style="margin-top: 0;">Datos Personales</h2>
+            <h2 id="datos" style="margin-top: 0;">Registro de Identidad</h2>
             <li><b>Nombre:</b> Javier Leonardo Conde Merma</li>
             <li><b>Edad:</b> 20 años</li>
             <li><b>Género:</b> Masculino</li>
             <li><b>Estatura:</b> 1.74 m</li>
-            <li><b>Ciudad:</b> El Alto</li>
+            <li><b>Ubicación Actual:</b> El Alto</li>
         </ul>
     </div>
 
     <hr style="border-color: #3e4431;">
 
     <section>
-        <h2>Mis Pasatiempos</h2>
+        <h2 id="pasatiempos">Rutina de Supervivencia</h2>
         <ul>
             <li>Hacer doblaje de voz.</li>
             <li>Creación de videos.</li>
@@ -191,12 +318,12 @@
     </section>
 
     <section>
-        <h2>Mi Canción Favorita</h2>
+        <h2 id="cancion">Cinta de Cassette Favorita</h2>
         <div class="music-section">
             <p><b>Título:</b> WHO IS IT</p>
             <p><b>Enlace:</b> <a href="https://youtu.be/PfrV_6yWbEg?si=kHECgXcIMeGxTSzg" target="_blank" style="color: #8b9274;">[ REPRODUCIR VIDEO ]</a></p>
             
-            <h3>Letra:</h3>
+            <h3>Letra Decodificada:</h3>
             <div class="lyrics-container">
                 I gave her money<br>
                 I gave her time<br>
@@ -217,41 +344,56 @@
     </section>
 
     <section>
-        <h2>Misión & Visión</h2>
+        <h2 id="mision">Objetivo a Largo Plazo</h2>
         <div class="ia-box">
-            <img src="https://lh3.googleusercontent.com/d/1KmMfLksoD_FzAmdwAJgPurdTWat4BRW-" 
-                alt="Visión del Futuro" class="ia-img">
+            <img src="https://lh3.googleusercontent.com/d/1KmMfLksoD_FzAmdwAJgPurdTWat4BRW-" alt="Visión del Futuro" class="ia-img">
             <p style="font-style: italic; margin-top: 10px;">"Buscando sobrevivir y crear en un mundo de suspenso."</p>
         </div>
     </section>
 
     <section>
-        <h2>Tareas Destacadas (Habilidades)</h2>
-        <p>Especializaciones adquiridas:</p>
-        <div class="skills-list">
-            <div class="skill-tag">Doblaje de Voz</div>
-            <div class="skill-tag">Programación en Python</div>
-            <div class="skill-tag">Desarrollo de Historias de Terror</div>
+        <h2 id="habilidades">Estado de Habilidades</h2>
+        <div class="skills-container">
+            <div class="skill-item">
+                <div class="skill-name">Doblaje de Voz [Nv. 8]</div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">Creación de Videos [Nv. 7]</div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 70%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">Programación Python [Nv. 5]</div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 50%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">Desarrollo de Terror [Nv. 9]</div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+            </div>
         </div>
     </section>
 
     <section>
-        <h2>Mi Juego Favorito</h2>
+        <h2 id="inventario">Inventario Visual</h2>
         <div class="music-section">
-            <p><b>Título:</b> THE LAST OF US</p>
-            <p>Me encanta el género de horror y suspenso. De hecho, mi gran meta personal es aprender a crear mis propios videojuegos de este tipo.</p>
+            <p><b>Archivo Destacado:</b> Doblaje de Voz (Prueba de Transmisión)</p>
+            <div class="tiktok-wrapper">
+                <iframe class="tiktok-iframe" src="https://www.tiktok.com/embed/v2/7536721563396181253" allowfullscreen></iframe>
+            </div>
         </div>
     </section>
 
     <section>
-        <h2>Frecuencias de Radio (Redes)</h2>
+        <h2 id="redes">Frecuencias de Emisión</h2>
         <div class="social-nav">
-            <a href="https://youtube.com/@16condejavier12?si=fNAx-kzs14RpOR51" class="social-link">YouTube</a>
-            <a href="https://www.tiktok.com/@dirkray1?_r=1&_t=ZS-96BnTtbUKdJ" class="social-link">TikTok</a>
-            <a href="https://www.facebook.com/share/1D9eZGLtKA/" class="social-link">Facebook</a>
+            <a href="https://youtube.com/@16condejavier12?si=fNAx-kzs14RpOR51" class="social-link" target="_blank">YouTube</a>
+            <a href="https://www.tiktok.com/@dirkray1?_r=1&_t=ZS-96BnTtbUKdJ" class="social-link" target="_blank">TikTok</a>
+            <a href="https://www.facebook.com/share/1D9eZGLtKA/" class="social-link" target="_blank">Facebook</a>
         </div>
     </section>
 </div>
+
+<a href="#inicio" class="btn-subir">▲</a>
 
 </body>
 </html>
