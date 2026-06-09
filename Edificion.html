@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Control - Edificio 10 Pisos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f1f5f9;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+    .main-card {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      padding: 24px;
+    }
+    .piso-row {
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #f8fafc;
+    }
+    .piso-label {
+      width: 80px;
+      font-weight: bold;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+    .deptos-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      width: 100%;
+    }
+    .btn-depto {
+      border: none;
+      border-radius: 6px;
+      padding: 10px 0;
+      font-weight: bold;
+      color: white;
+      font-size: 0.9rem;
+      text-align: center;
+      transition: transform 0.1s ease;
+    }
+    .btn-depto:hover {
+      transform: scale(1.04);
+      opacity: 0.9;
+    }
+    .bg-al-dia {
+      background-color: #2e7d32 !important;
+    }
+    .bg-monto-pendiente {
+      background-color: #ff9100 !important;
+    }
+    .bg-con-deuda {
+      background-color: #c62828 !important;
+    }
+    .card-detalle {
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container py-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4">
+      <div>
+        <h2 class="fw-bold text-dark m-0">🏢 Monitoreo de Estado - Edificio de 10 Pisos</h2>
+        <p class="text-muted m-0">Ejecución Tradicional corriendo localmente conectado a Google Sheets.</p>
+      </div>
+      <button class="btn btn-primary fw-bold px-4 py-2 mt-3 mt-md-0 shadow-sm" onclick="sincronizarConSheets()">
+        <i class="bi bi-arrow-clockwise" id="iconSync"></i> Sincronizar Datos
+      </button>
+    </div>
+
+    <div id="loader" class="text-center py-5 main-card mb-4 d-none">
+      <div class="spinner-border text-primary mb-2" role="status"></div>
+      <p class="text-muted m-0 fw-semibold">Conectando remotamente con Google Sheets...</p>
+    </div>
+
+    <div class="row g-4" id="panelPrincipal">
+      <div class="col-lg-7">
+        <div class="main-card">
+          <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+            <h5 class="m-0 fw-bold text-secondary"><i class="bi bi-building"></i> Vista de Departamentos</h5>
+            <div class="d-flex gap-2">
+              <span class="badge bg-success px-2 py-1.5">Al día</span>
+              <span class="badge bg-warning px-2 py-1.5 text-dark">Monto pendiente</span>
+              <span class="badge bg-danger px-2 py-1.5">Con deuda</span>
+            </div>
+          </div>
+          <div id="contenedorPisos"></div>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="card card-detalle h-100 bg-white">
+          <div class="card-header bg-dark text-white p-3">
+            <h5 class="m-0 fw-bold"><i class="bi bi-search"></i> Estado de Cuenta</h5>
+          </div>
+          <div class="card-body p-4 d-flex flex-column justify-content-center" id="panelDetail">
+            <div class="text-center text-muted py-5" id="placeholderText">
+              <i class="bi bi-info-circle display-4 d-block mb-3 text-secondary"></i>
+              Selecciona un departamento de la matriz izquierda para ver sus deudas.
+            </div>
+
+            <div id="datosContenedor" class="d-none w-100">
+              <div class="alert alert-warning py-2 small fw-bold text-center mb-3" style="border-left: 5px solid #ff9100;">
+                📅 FECHA DE PAGO ESTABLECIDA: DEL 15 AL 25
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="fw-bold m-0 text-primary">Depto <span id="lblDepto">---</span></h3>
+                <span id="badgeEstado" class="badge fs-6 px-3 py-2">---</span>
+              </div>
+
+              <div id="seccionQR" class="text-center mb-3 p-2 border rounded-3 bg-white shadow-sm d-none">
+                <p class="small fw-bold text-muted mb-1" style="font-size: 0.8rem;">
+                  <i class="bi bi-qr-code-scan"></i> ESCANEE AQUÍ PARA PAGAR (QR SIN MONTO)
+                </p>
+                <img id="imgQR" src="https://lh3.googleusercontent.com/d/15mBet3tW-Yu0LhqhqiqDDFPnZoSjeDYG" alt="QR Banco" class="img-fluid border p-2 bg-light" style="max-width: 140px; border-radius: 8px;">
+              </div>
+
+              <div class="mb-3">
+                <small class="text-muted fw-bold text-uppercase d-block" style="font-size: 0.75rem;">Inquilino / Propietario</small>
+                <span class="fs-5 fw-semibold text-dark" id="lblInquilino">---</span>
+              </div>
+
+              <h6 class="fw-bold mb-2 border-bottom pb-1 text-muted small text-uppercase" style="font-size: 0.75rem;">Desglose de Conceptos</h6>
+              <div class="list-group mb-3 shadow-sm" style="font-size: 0.85rem;">
+                <div class="list-group-item d-flex justify-content-between align-items-center py-1.5">
+                  <span>Alquiler Base</span> <span class="fw-bold" id="valAlquiler">0 Bs.</span>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center py-1.5">
+                  <span>Mantenimiento</span> <span class="fw-bold" id="valMantenimiento">0 Bs.</span>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center py-1.5">
+                  <span>Limpieza</span> <span class="fw-bold" id="valLimpieza">0 Bs.</span>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center py-1.5">
+                  <span>Seguridad</span> <span class="fw-bold" id="valSeguridad">0 Bs.</span>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center py-1.5">
+                  <span>Agua</span> <span class="fw-bold" id="valAgua">0 Bs.</span>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center py-1.5">
+                  <span>Electricidad</span> <span class="fw-bold" id="valElectricidad">0 Bs.</span>
+                </div>
+              </div>
+
+              <div class="bg-light p-3 rounded-3 border mb-3" style="font-size: 0.85rem;">
+                <div id="rowBase" class="d-flex justify-content-between align-items-center mb-1">
+                  <span class="fw-bold text-secondary">Monto Total Base:</span>
+                  <span class="fw-bold text-dark" id="valTotal">0 Bs.</span>
+                </div>
+                <div id="rowCancelado" class="d-flex justify-content-between align-items-center mb-1 d-none">
+                  <span class="fw-bold text-success">Monto Cancelado:</span>
+                  <span class="fw-bold text-success" id="valCancelado">0 Bs.</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center pt-2 border-top">
+                  <span class="fw-bold text-dark" id="lblTextoDiferencia">Saldo Restante:</span>
+                  <span class="h4 m-0 fw-bold text-danger" id="valFinal">0 Bs.</span>
+                </div>
+              </div>
+
+              <div id="seccionPago" class="card p-3 mb-3 bg-light border d-none">
+                <h6 class="fw-bold text-dark mb-2" style="font-size: 0.85rem;"><i class="bi bi-cloud-arrow-up-fill text-primary"></i> Registrar Comprobante de Pago (Boucher)</h6>
+                <form id="formPago" onsubmit="event.preventDefault();">
+                  <div class="mb-2">
+                    <input class="form-control form-control-sm" type="file" id="archivoVoucher" accept="image/*" required>
+                  </div>
+                  <button type="button" id="btnSubirPago" class="btn btn-primary w-100 btn-sm fw-bold" onclick="procesarEnvioPago()">
+                    <i class="bi bi-check-circle-fill me-1"></i> Registrar y Validar Pago
+                  </button>
+                </form>
+                <div id="statusSubida" class="text-center small mt-2 d-none fw-bold"></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const URL_SCRIPT_GOOGLE = "https://script.google.com/macros/s/AKfycbwmZOzOEYEBTcFTAjPP737EJ3IdQEc9zN7WqoowQ9iRYaCZse_m-e25Jd15MtxHyPbF/exec";
+
+    var baseDatosEdificio = {};
+
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const idUsuario = urlParams.get('id');
+      
+      if (idUsuario) {
+        document.getElementById('loader').classList.remove('d-none');
+        document.querySelector('.col-lg-7').style.display = 'none';
+        document.querySelector('.col-lg-5').className = 'col-lg-12';
+
+        fetch(URL_SCRIPT_GOOGLE)
+          .then(res => res.json())
+          .then(datos => {
+            baseDatosEdificio = datos;
+            document.getElementById('loader').classList.add('d-none');
+            document.getElementById('placeholderText').classList.add('d-none');
+            document.getElementById('datosContenedor').classList.remove('d-none');
+            mostrarDetalles(idUsuario);
+          })
+          .catch(err => alert("Error cargando el departamento externo: " + err.message));
+      } else {
+        sincronizarConSheets();
+      }
+    };
+
+    function sincronizarConSheets() {
+      var loader = document.getElementById('loader');
+      var panel = document.getElementById('panelPrincipal');
+      loader.classList.remove('d-none');
+      panel.style.opacity = '0.3';
+
+      fetch(URL_SCRIPT_GOOGLE)
+        .then(res => res.json())
+        .then(datos => {
+          baseDatosEdificio = datos;
+          renderizarEdificio();
+          loader.classList.add('d-none');
+          panel.style.opacity = '1';
+        })
+        .catch(err => {
+          loader.classList.add('d-none');
+          panel.style.opacity = '1';
+          alert('Error de API Fetch: ' + err.message + "\n¿Olvidaste colocar tu URL en la línea 192?");
+        });
+    }
+
+    function renderizarEdificio() {
+      var contenedor = document.getElementById('contenedorPisos');
+      if (!contenedor) return;
+      contenedor.innerHTML = '';
+
+      for (var p = 10; p >= 1; p--) {
+        var row = document.createElement('div');
+        row.className = 'piso-row';
+        var label = document.createElement('div');
+        label.className = 'piso-label';
+        label.innerText = 'Piso ' + p;
+        row.appendChild(label);
+
+        var grid = document.createElement('div');
+        grid.className = 'deptos-grid';
+
+        for (var d = 1; d <= 4; d++) {
+          var idDepto = (p === 10) ? '100' + d : p + '0' + d;
+          var data = baseDatosEdificio[String(idDepto)] || { estadoSheet: 'Al día' };
+          
+          var estado = data.estadoSheet.trim();
+          var color = 'bg-con-deuda';
+          if (estado === 'Al día') {
+            color = 'bg-al-dia';
+          } else if (estado === 'Monto pendiente') {
+            color = 'bg-monto-pendiente';
+          }
+
+          var btn = document.createElement('button');
+          btn.className = 'btn-depto ' + color;
+          btn.innerText = idDepto;
+          btn.onclick = (function(id) { return function() { mostrarDetalles(id); }; })(idDepto);
+          grid.appendChild(btn);
+        }
+        row.appendChild(grid);
+        contenedor.appendChild(row);
+      }
+    }
+
+    function mostrarDetalles(idDepto) {
+      var deptoData = baseDatosEdificio[String(idDepto)];
+      if (!deptoData) {
+        alert("No hay registros del departamento " + idDepto);
+        return;
+      }
+
+      document.getElementById('placeholderText').classList.add('d-none');
+      document.getElementById('datosContenedor').classList.remove('d-none');
+      
+      document.getElementById('lblDepto').innerText = idDepto;
+      document.getElementById('lblInquilino').innerText = deptoData.inquilino;
+      document.getElementById('valTotal').innerText = deptoData.totalMora.toFixed(2) + ' Bs.';
+
+      document.getElementById('valAlquiler').innerText = deptoData.alquiler.toFixed(2) + ' Bs.';
+      document.getElementById('valMantenimiento').innerText = deptoData.mantenimiento.toFixed(2) + ' Bs.';
+      document.getElementById('valLimpieza').innerText = deptoData.limpieza.toFixed(2) + ' Bs.';
+      document.getElementById('valSeguridad').innerText = deptoData.seguridad.toFixed(2) + ' Bs.';
+      document.getElementById('valAgua').innerText = deptoData.agua.toFixed(2) + ' Bs.';
+      document.getElementById('valElectricidad').innerText = deptoData.electricity.toFixed(2) + ' Bs.';
+      
+      var estado = deptoData.estadoSheet.trim();
+      var badge = document.getElementById('badgeEstado');
+      badge.innerText = estado;
+
+      if (estado === 'Al día') {
+        badge.className = 'badge bg-success fs-6 px-3 py-2';
+        document.getElementById('seccionQR').classList.add('d-none');
+        document.getElementById('seccionPago').classList.add('d-none');
+        document.getElementById('rowCancelado').classList.add('d-none');
+        
+        document.getElementById('lblTextoDiferencia').innerText = "Saldo Pendiente:";
+        document.getElementById('valFinal').innerText = "0.00 Bs.";
+        document.getElementById('valFinal').className = "h4 m-0 fw-bold text-success";
+      } 
+      else if (estado === 'Monto pendiente') {
+        badge.className = 'badge bg-warning text-dark fs-6 px-3 py-2';
+        document.getElementById('seccionQR').classList.remove('d-none');
+        document.getElementById('seccionPago').classList.remove('d-none');
+        document.getElementById('rowCancelado').classList.remove('d-none');
+
+        document.getElementById('valCancelado').innerText = deptoData.cancelado.toFixed(2) + ' Bs.';
+        document.getElementById('lblTextoDiferencia').innerText = "Saldo Restante:";
+        document.getElementById('valFinal').innerText = deptoData.diferencia.toFixed(2) + ' Bs.';
+        document.getElementById('valFinal').className = "h4 m-0 fw-bold text-warning";
+      } 
+      else { // Con deuda o Falta pago
+        badge.className = 'badge bg-danger fs-6 px-3 py-2';
+        document.getElementById('seccionQR').classList.remove('d-none');
+        document.getElementById('seccionPago').classList.remove('d-none');
+        document.getElementById('rowCancelado').classList.add('d-none');
+
+        document.getElementById('lblTextoDiferencia').innerText = "Total Acumulado:";
+        document.getElementById('valFinal').innerText = deptoData.totalMora.toFixed(2) + ' Bs.';
+        document.getElementById('valFinal').className = "h4 m-0 fw-bold text-danger";
+      }
+    }
+
+    function abrirWhatsAppInquilino() {
+      var url = document.getElementById('btnWhatsApp').getAttribute('data-url');
+      if (url && url !== '#') {
+        window.open(url, '_blank');
+      } else {
+        alert("Enlace no generado.");
+      }
+    }
+
+    function procesarEnvioPago() {
+      var fileInput = document.getElementById('archivoVoucher');
+      var idDepto = document.getElementById('lblDepto').innerText;
+      var btn = document.getElementById('btnSubirPago');
+      var statusDiv = document.getElementById('statusSubida');
+      
+      if (!fileInput.files || fileInput.files.length === 0) {
+        alert("Selecciona un boucher antes de validar.");
+        return;
+      }
+      
+      var file = fileInput.files[0];
+      btn.disabled = true;
+      btn.innerHTML = 'Procesando...';
+      
+      statusDiv.classList.remove('d-none', 'text-danger', 'text-success');
+      statusDiv.classList.add('text-primary');
+      statusDiv.innerText = "Subiendo archivo a la nube...";
+
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var base64Data = e.target.result.split(',')[1];
+        
+        var datosEnvio = {
+          idDepto: idDepto,
+          datosBase64: base64Data,
+          tipoMime: file.type,
+          nombreArchivo: "Voucher_" + idDepto + "_" + file.name
+        };
+
+        fetch(URL_SCRIPT_GOOGLE, {
+          method: 'POST',
+          body: JSON.stringify(datosEnvio)
+        })
+        .then(res => res.json())
+        .then(respuesta => {
+          btn.disabled = false;
+          btn.innerHTML = '<i class="bi bi-check-circle-fill me-1"></i> Registrar Pago';
+          statusDiv.className = "text-center small mt-2 fw-bold text-success";
+          statusDiv.innerText = respuesta.mensaje;
+          fileInput.value = ""; 
+          sincronizarConSheets(); // Actualiza la matriz web automáticamente
+        })
+        .catch(err => {
+          btn.disabled = false;
+          btn.innerHTML = 'Registrar Pago';
+          statusDiv.className = "text-center small mt-2 fw-bold text-danger";
+          statusDiv.innerText = "Error: " + err.message;
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+  </script>
+</body>
+</html>
