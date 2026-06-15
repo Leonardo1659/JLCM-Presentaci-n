@@ -117,6 +117,22 @@
             transform: translateY(-4px);
             box-shadow: 0 10px 30px rgba(85, 174, 183, 0.5);
         }
+        .btn-bm-danger-outline {
+            color: #dc3545;
+            border: 1px solid #dc3545;
+            background: transparent;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+        .btn-bm-danger-outline:hover {
+            background: #dc3545;
+            color: white;
+        }
 
         /* Secciones con espaciado */
         section {
@@ -154,61 +170,35 @@
             overflow: hidden;
         }
         .product-card:hover {
-            transform: translateY(-15px);
+            transform: translateY(-10px);
             box-shadow: 0 25px 60px rgba(51, 42, 102, 0.12);
         }
         .product-img-wrapper {
-            padding: 70px 30px;
-            text-align: center;
-        }
-        .bg-mora { background-color: var(--bm-purple); }
-        .bg-arandano { background-color: var(--bm-turquoise); }
-        .bg-frambuesa { background-color: var(--bm-pink); }
-
-        /* Testimonios */
-        .testimonial-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            border: 1px solid rgba(51, 42, 102, 0.05);
-            height: 100%;
-        }
-        .client-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .client-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--bm-pink);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--bm-purple);
-            font-weight: 700;
-        }
-
-        /* Proceso Timeline */
-        .process-step {
+            padding: 50px 20px;
             text-align: center;
             position: relative;
         }
-        .process-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background-color: var(--bm-turquoise);
-            color: white;
-            font-size: 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px auto;
-            border: 5px solid white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        
+        /* Paleta de colores para los sabores */
+        .bg-fresa { background-color: var(--bm-pink); }
+        .bg-arandano { background-color: var(--bm-purple); }
+        .bg-pina { background-color: #f6c042; } /* Amarillo para piña */
+        .bg-kiwi { background-color: var(--bm-green); }
+        .bg-frutosrojos { background-color: #d1495b; } /* Rojo más oscuro */
+        .bg-platano { background-color: #f7d060; }
+        .bg-naranja { background-color: #f08a5d; }
+        .bg-cereza { background-color: #9d0208; }
+
+        .temporada-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.9);
+            color: var(--bm-purple);
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 5px 12px;
+            border-radius: 20px;
         }
 
         /* Acordeón FAQ y Nutrición */
@@ -250,7 +240,7 @@
 <body>
 
     <div class="top-bar text-center py-2 px-3">
-        POTENCIA TU PRODUCTIVIDAD NATURALMENTE | ENVÍOS GRATIS EN BOLIVIA POR LANZAMIENTO
+        GOMITAS CON SUPLEMENTOS • ENFOQUE, ENERGÍA Y BIENESTAR
     </div>
 
     <nav class="navbar navbar-expand-lg sticky-top">
@@ -262,7 +252,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#mision">Ciencia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mision">Beneficios</a></li>
                     <li class="nav-item"><a class="nav-link" href="#catalogo">Catálogo</a></li>
                     <li class="nav-item"><a class="nav-link" href="#informacion">Nutrición</a></li>
                     <li class="nav-item ms-lg-4">
@@ -281,22 +271,22 @@
             <div class="row align-items-center g-5">
                 <div class="col-lg-7">
                     <span class="badge mb-3 py-2 px-3 rounded-pill" style="background-color: rgba(129, 195, 145, 0.15); color: var(--bm-green); font-weight: 700;">
-                        <i class="bi bi-patch-check-fill me-2"></i> Nutrición Cognitiva 100% Natural
+                        <i class="bi bi-patch-check-fill me-2"></i> Con Vitamina C y Colina
                     </span>
                     <h1 class="hero-title mb-4">Desbloquea tu <br><span style="color: var(--bm-turquoise);">máximo potencial</span></h1>
-                    <p class="fs-4 text-muted mb-5" style="max-width: 650px;">Gomitas funcionales premium diseñadas para optimizar el enfoque, la creatividad y la energía mental de estudiantes y profesionales.</p>
-                    <a href="#catalogo" class="btn btn-bm-primary btn-lg">Explorar Lotes de Compra</a>
+                    <p class="fs-4 text-muted mb-5" style="max-width: 650px;">Gomitas funcionales premium diseñadas para optimizar el enfoque, la creatividad y la energía mental. Elaboradas con azúcar natural de la fruta.</p>
+                    <a href="#catalogo" class="btn btn-bm-primary btn-lg">Comprar Sabores</a>
                 </div>
                 <div class="col-lg-5 text-center hero-image-mockup">
                     <div class="p-5 rounded-5 shadow-lg d-inline-block text-start" style="background-color: var(--bm-purple); width: 100%; max-width: 400px; color: white;">
                         <h2 class="text-white mb-2">BayaMente</h2>
-                        <p class="small text-uppercase tracking-widest" style="color: var(--bm-pink);">Focus & Energy</p>
+                        <p class="small text-uppercase tracking-widest" style="color: var(--bm-pink);">Gomitas con Suplementos</p>
                         <div class="text-center my-5 py-3">
-                            <i class="bi bi-brain display-1" style="color: var(--bm-turquoise);"></i>
+                            <i class="bi bi-stars display-1" style="color: var(--bm-turquoise);"></i>
                         </div>
                         <div class="border-top border-secondary border-opacity-50 pt-3 d-flex justify-content-between small opacity-75">
-                            <span>Fórmula Orgánica</span>
-                            <span>Cont. 6 Sobres</span>
+                            <span>Sin colorantes art.</span>
+                            <span>Cont. Neto: 15g</span>
                         </div>
                     </div>
                 </div>
@@ -304,48 +294,10 @@
         </div>
     </section>
 
-    <section id="mision" class="bg-light-section container">
-        <div class="row align-items-center g-5 px-lg-5">
-            <div class="col-lg-6">
-                <i class="bi bi-mortarboard-fill display-3 mb-4" style="color: var(--bm-turquoise);"></i>
-                <h2 class="display-section">Nuestra Misión: <br>Claridad Mental</h2>
-                <p class="fs-5 text-muted">En Baya Mente fusionamos la sabiduría botánica ancestral con la neurociencia moderna. Creemos en un impulso cognitivo limpio, libre de choques de cafeína o azúcares refinados. Nuestra misión es darte la herramienta perfecta para concentrarte en lo que realmente importa.</p>
-            </div>
-            <div class="col-lg-6">
-                <div class="row g-4">
-                    <div class="col-6">
-                        <div class="bg-white p-4 rounded-4 shadow-sm border">
-                            <h4 style="color: var(--bm-green);">0% Químicos</h4>
-                            <p class="small text-muted mb-0">Parámetros limpios según manual v05.</p>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="bg-white p-4 rounded-4 shadow-sm border">
-                            <h4 style="color: var(--bm-blue);">Enfoque Puro</h4>
-                            <p class="small text-muted mb-0">Mejora la atención sostenida.</p>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="bg-white p-4 rounded-4 shadow-sm border">
-                            <h4 style="color: var(--bm-pink);">Energía Constante</h4>
-                            <p class="small text-muted mb-0">Sin bajones repentinos.</p>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="bg-white p-4 rounded-4 shadow-sm border">
-                            <h4 style="color: var(--bm-purple);">Calidad Premium</h4>
-                            <p class="small text-muted mb-0">Estándares internacionales.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="catalogo" class="container">
-        <div class="text-center mb-5 pb-3">
-            <span class="text-uppercase fw-bold tracking-widest small" style="color: var(--bm-blue);">Selección Premium</span>
-            <h2 class="display-section mt-2">Elige tu Impulso Cognitivo</h2>
+    <section id="catalogo" class="container bg-light-section py-5 my-5">
+        <div class="text-center mb-5 pb-3 pt-4">
+            <span class="text-uppercase fw-bold tracking-widest small" style="color: var(--bm-blue);">Selección de Sabores</span>
+            <h2 class="display-section mt-2">Nuestra Colección</h2>
             
             <div class="d-flex justify-content-center mt-4 mb-5">
                 <ul class="nav nav-pills gap-2" id="flavorTabs" role="tablist">
@@ -353,126 +305,158 @@
                         <button class="nav-link nav-link-tab active" id="all-tab" data-bs-toggle="pill" data-bs-target="#tab-all" type="button">Todos los Sabores</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link nav-link-tab" id="relax-tab" data-bs-toggle="pill" data-bs-target="#tab-relax" type="button">Relajantes</button>
+                        <button class="nav-link nav-link-tab" id="clasicos-tab" data-bs-toggle="pill" data-bs-target="#tab-clasicos" type="button">Clásicos</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link nav-link-tab" id="focus-tab" data-bs-toggle="pill" data-bs-target="#tab-focus" type="button">Enfoque</button>
+                        <button class="nav-link nav-link-tab" id="temporada-tab" data-bs-toggle="pill" data-bs-target="#tab-temporada" type="button">Edición Temporada</button>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <div class="tab-content" id="flavorTabsContent">
+        <div class="tab-content px-lg-4" id="flavorTabsContent">
             <div class="tab-pane fade show active" id="tab-all" role="tabpanel">
                 <div class="row g-4">
-                    <div class="col-lg-4 col-md-6">
+                    
+                    <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="card product-card h-100">
-                            <div class="product-img-wrapper bg-mora">
-                                <i class="bi bi-droplet-fill display-2 text-white opacity-75"></i>
+                            <div class="product-img-wrapper bg-fresa">
+                                <i class="bi bi-heart-fill display-4" style="color: var(--bm-purple); opacity: 0.8;"></i>
                             </div>
-                            <div class="card-body p-4 d-flex flex-column">
-                                <h5>Sabor Mora (Clásico)</h5>
-                                <p class="text-muted small flex-grow-1">Fórmula original equilibrada. Ideal para jornadas largas que requieren calma y claridad.</p>
-                                <div class="d-flex justify-content-between align-items-center mt-4 border-top pt-3">
-                                    <span class="fs-3 fw-bold">Bs. 35.<small>00</small></span>
-                                    <button class="btn btn-bm-primary btn-sm px-4" onclick="agregarAlCarrito('Gomitas Mora', 35)">Añadir</button>
+                            <div class="card-body p-3 d-flex flex-column text-center">
+                                <h6 class="fw-bold mb-1">Gomitas Fresa</h6>
+                                <p class="text-muted small mb-3">Sabor auténtico</p>
+                                <div class="mt-auto border-top pt-2">
+                                    <span class="fw-bold fs-5 d-block mb-2">Bs. 15.00</span>
+                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Fresa', 15)">Añadir</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+
+                    <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="card product-card h-100">
                             <div class="product-img-wrapper bg-arandano">
-                                <i class="bi bi-bolt-fill display-2 text-white opacity-75"></i>
+                                <i class="bi bi-lightning-charge-fill display-4 text-white opacity-75"></i>
                             </div>
-                            <div class="card-body p-4 d-flex flex-column">
-                                <h5>Sabor Arándano (Energía)</h5>
-                                <p class="text-muted small flex-grow-1">Frescura y lucidez. Diseñada para reactivar la mente en momentos de fatiga aguda.</p>
-                                <div class="d-flex justify-content-between align-items-center mt-4 border-top pt-3">
-                                    <span class="fs-3 fw-bold">Bs. 35.<small>00</small></span>
-                                    <button class="btn btn-bm-primary btn-sm px-4" onclick="agregarAlCarrito('Gomitas Arándano', 35)">Añadir</button>
+                            <div class="card-body p-3 d-flex flex-column text-center">
+                                <h6 class="fw-bold mb-1">Gomitas Arándano</h6>
+                                <p class="text-muted small mb-3">Refrescante mental</p>
+                                <div class="mt-auto border-top pt-2">
+                                    <span class="fw-bold fs-5 d-block mb-2">Bs. 15.00</span>
+                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Arándano', 15)">Añadir</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-12">
+
+                    <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="card product-card h-100">
-                            <div class="product-img-wrapper bg-frambuesa">
-                                <i class="bi bi-lightbulb-fill display-2" style="color: var(--bm-purple);"></i>
+                            <div class="product-img-wrapper bg-pina">
+                                <i class="bi bi-sun-fill display-4 text-white opacity-90"></i>
                             </div>
-                            <div class="card-body p-4 d-flex flex-column">
-                                <h5>Sabor Frambuesa (Creatividad)</h5>
-                                <p class="text-muted small flex-grow-1">Perfil vibrante. Estimula el pensamiento lateral y la generación de ideas innovadoras.</p>
-                                <div class="d-flex justify-content-between align-items-center mt-4 border-top pt-3">
-                                    <span class="fs-3 fw-bold">Bs. 35.<small>00</small></span>
-                                    <button class="btn btn-bm-primary btn-sm px-4" onclick="agregarAlCarrito('Gomitas Frambuesa', 35)">Añadir</button>
+                            <div class="card-body p-3 d-flex flex-column text-center">
+                                <h6 class="fw-bold mb-1">Gomitas Piña</h6>
+                                <p class="text-muted small mb-3">Toque tropical</p>
+                                <div class="mt-auto border-top pt-2">
+                                    <span class="fw-bold fs-5 d-block mb-2">Bs. 15.00</span>
+                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Piña', 15)">Añadir</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrapper bg-kiwi">
+                                <i class="bi bi-egg-fill display-4 text-white opacity-90"></i>
+                            </div>
+                            <div class="card-body p-3 d-flex flex-column text-center">
+                                <h6 class="fw-bold mb-1">Gomitas Kiwi</h6>
+                                <p class="text-muted small mb-3">Energía vibrante</p>
+                                <div class="mt-auto border-top pt-2">
+                                    <span class="fw-bold fs-5 d-block mb-2">Bs. 15.00</span>
+                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Kiwi', 15)">Añadir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrapper bg-frutosrojos">
+                                <i class="bi bi-basket2-fill display-4 text-white opacity-90"></i>
+                            </div>
+                            <div class="card-body p-3 d-flex flex-column text-center">
+                                <h6 class="fw-bold mb-1">Frutos Rojos</h6>
+                                <p class="text-muted small mb-3">Dulzura intensa</p>
+                                <div class="mt-auto border-top pt-2">
+                                    <span class="fw-bold fs-5 d-block mb-2">Bs. 15.00</span>
+                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Frutos Rojos', 15)">Añadir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrapper bg-platano">
+                                <i class="bi bi-moon-fill display-4 text-white opacity-90"></i>
+                            </div>
+                            <div class="card-body p-3 d-flex flex-column text-center">
+                                <h6 class="fw-bold mb-1">Gomitas Plátano</h6>
+                                <p class="text-muted small mb-3">Suave y relajante</p>
+                                <div class="mt-auto border-top pt-2">
+                                    <span class="fw-bold fs-5 d-block mb-2">Bs. 15.00</span>
+                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Plátano', 15)">Añadir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card product-card h-100 border border-info">
+                            <div class="product-img-wrapper bg-naranja">
+                                <span class="temporada-badge">Temporada</span>
+                                <i class="bi bi-brightness-high-fill display-4 text-white opacity-90"></i>
+                            </div>
+                            <div class="card-body p-3 d-flex flex-column text-center">
+                                <h6 class="fw-bold mb-1">Gomitas Naranja</h6>
+                                <p class="text-muted small mb-3">Cítrico revitalizante</p>
+                                <div class="mt-auto border-top pt-2">
+                                    <span class="fw-bold fs-5 d-block mb-2 text-info">Bs. 15.00</span>
+                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Naranja (Temp)', 15)">Añadir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card product-card h-100 border border-info">
+                            <div class="product-img-wrapper bg-cereza">
+                                <span class="temporada-badge">Temporada</span>
+                                <i class="bi bi-flower1 display-4 text-white opacity-90"></i>
+                            </div>
+                            <div class="card-body p-3 d-flex flex-column text-center">
+                                <h6 class="fw-bold mb-1">Gomitas Cereza</h6>
+                                <p class="text-muted small mb-3">Acento especial</p>
+                                <div class="mt-auto border-top pt-2">
+                                    <span class="fw-bold fs-5 d-block mb-2 text-info">Bs. 15.00</span>
+                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Cereza (Temp)', 15)">Añadir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             
-            <div class="tab-pane fade" id="tab-relax" role="tabpanel">
-                <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card product-card h-100">
-                            <div class="product-img-wrapper bg-mora">
-                                <i class="bi bi-moon-stars-fill display-2 text-white opacity-75"></i>
-                            </div>
-                            <div class="card-body p-4 d-flex flex-column">
-                                <h5>Sabor Mora (Relajante)</h5>
-                                <p class="text-muted small flex-grow-1">Ideal para reducir el estrés laboral y enfocar la mente de manera tranquila.</p>
-                                <div class="d-flex justify-content-between align-items-center mt-4 border-top pt-3">
-                                    <span class="fs-3 fw-bold">Bs. 35.<small>00</small></span>
-                                    <button class="btn btn-bm-primary btn-sm px-4" onclick="agregarAlCarrito('Gomitas Mora', 35)">Añadir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="tab-pane fade text-center py-5" id="tab-clasicos" role="tabpanel">
+                <h4 class="text-muted">Desliza en "Todos los Sabores" para ver nuestra línea regular de 6 sabores base.</h4>
             </div>
 
-            <div class="tab-pane fade" id="tab-focus" role="tabpanel">
-                <div class="row justify-content-center g-4">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card product-card h-100">
-                            <div class="product-img-wrapper bg-arandano">
-                                <i class="bi bi-lightning-charge-fill display-2 text-white opacity-75"></i>
-                            </div>
-                            <div class="card-body p-4 d-flex flex-column">
-                                <h5>Sabor Arándano (Enfoque)</h5>
-                                <p class="text-muted small flex-grow-1">Reactivación cognitiva inmediata para jornadas de estudio intenso.</p>
-                                <div class="d-flex justify-content-between align-items-center mt-4 border-top pt-3">
-                                    <span class="fs-3 fw-bold">Bs. 35.<small>00</small></span>
-                                    <button class="btn btn-bm-primary btn-sm px-4" onclick="agregarAlCarrito('Gomitas Arándano', 35)">Añadir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="container py-0">
-        <div class="p-5 rounded-5" style="background-color: var(--bm-blue); color: white;">
-            <div class="row text-center g-4">
-                <div class="col-md-4">
-                    <i class="bi bi-book display-4 mb-3" style="color: var(--bm-pink);"></i>
-                    <h4>Estudio Intenso</h4>
-                    <p class="small opacity-75">Retén más información y mantén el foco durante exámenes.</p>
-                </div>
-                <div class="col-md-4">
-                    <i class="bi bi-laptop display-4 mb-3" style="color: var(--bm-pink);"></i>
-                    <h4>Trabajo Profundo</h4>
-                    <p class="small opacity-75">Elimina distracciones y termina proyectos en tiempo récord.</p>
-                </div>
-                <div class="col-md-4">
-                    <i class="bi bi-palette display-4 mb-3" style="color: var(--bm-pink);"></i>
-                    <h4>Lluvia de Ideas</h4>
-                    <p class="small opacity-75">Desbloquea el pensamiento creativo e innovador.</p>
-                </div>
+            <div class="tab-pane fade text-center py-5" id="tab-temporada" role="tabpanel">
+                <h4 class="text-muted">Aprovecha nuestras ediciones limitadas de <span style="color: #f08a5d;">Naranja</span> y <span style="color: #9d0208;">Cereza</span> antes de que se agoten.</h4>
             </div>
         </div>
     </section>
@@ -480,31 +464,32 @@
     <section id="informacion" class="container">
         <div class="row g-5 align-items-center">
             <div class="col-lg-6">
-                <h2 class="display-section fs-1">Transparencia Total</h2>
-                <p class="text-muted mb-4">Cumplimos estrictamente con los parámetros del manual de marca. Despliega los paneles para verificar la información nutrimental por porción.</p>
+                <h2 class="display-section fs-1">Formulación y Calidad</h2>
+                <p class="text-muted mb-4">Gomitas con suplementos desarrolladas bajo estrictas especificaciones (Plano Mecánico V05). Con azúcar natural de fruta y sin colorantes artificiales.</p>
                 
                 <div class="accordion shadow-sm" id="nutritionAccordion">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                <i class="bi bi-info-circle me-2 text-primary"></i> Calorías e Ingredientes
+                                <i class="bi bi-list-check me-2 text-primary"></i> Ingredientes Oficiales
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#nutritionAccordion">
                             <div class="accordion-body text-muted small">
-                                Cada porción individual aporta únicamente <strong>18 kcal (75 kJ)</strong>, garantizando un snack funcional ultra limpio.
+                                Jarabe de glucosa, azúcar, gelatina, agua purificada, ácido cítrico, saborizante natural, <strong>vitamina C (ácido ascórbico)</strong>, <strong>colina (bitartrato de colina)</strong>, <strong>cafeína natural</strong>, colorante natural, aceite vegetal (coco) y cera de carnauba (brillo natural).
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                <i class="bi bi-heart-pulse me-2 text-danger"></i> Grasas y Azúcares
+                                <i class="bi bi-exclamation-triangle me-2 text-warning"></i> Advertencias y Uso Recomendado
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#nutritionAccordion">
                             <div class="accordion-body text-muted small">
-                                <strong>0g de Azúcares añadidos</strong> y <strong>0g de Grasas Totales</strong>. Diseñado para la estimulación mental sin aportes lipídicos.
+                                <strong>Modo de Consumo:</strong> Consumir 2 gomitas al día, preferiblemente en la mañana.<br><br>
+                                <em>ESTE PRODUCTO NO ES UN MEDICAMENTO. No exceder la porción recomendada. No recomendado para menores de 12 años, mujeres embarazadas o en lactancia.</em>
                             </div>
                         </div>
                     </div>
@@ -513,81 +498,28 @@
 
             <div class="col-lg-6">
                 <div class="bg-light p-4 rounded-4 border">
-                    <h5 class="mb-3 text-uppercase tracking-wider font-monospace text-center fs-6">Etiqueta Nutrimental Oficial</h5>
+                    <h5 class="mb-2 text-uppercase tracking-wider font-monospace text-center fs-6">Información Nutricional</h5>
+                    <p class="text-center small text-muted mb-3">Tamaño de porción: 2 gomitas (10 g) | Porciones: 15</p>
                     <table class="table nutritional-table table-bordered mb-0 bg-white small">
                         <thead>
                             <tr>
-                                <th>Componente</th>
+                                <th>Nutriente</th>
                                 <th>Por Porción</th>
-                                <th>Por 100g</th>
+                                <th>% VD*</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>Contenido energético</td><td>18 kcal</td><td>300 kcal</td></tr>
-                            <tr><td>Proteínas</td><td>0 g</td><td>0 g</td></tr>
-                            <tr><td>Grasas Totales</td><td>0 g</td><td>0 g</td></tr>
-                            <tr><td>Azúcares Añadidos</td><td>0 g</td><td>0 g</td></tr>
-                            <tr><td>Sodio</td><td>3 mg</td><td>50 mg</td></tr>
+                            <tr><td>Energía</td><td>35 kcal</td><td>-</td></tr>
+                            <tr><td>Carbohidratos</td><td>8 g</td><td>3%</td></tr>
+                            <tr><td>Azúcares</td><td>6 g</td><td>**</td></tr>
+                            <tr><td>Proteínas / Grasas totales</td><td>0 g</td><td>0%</td></tr>
+                            <tr><td>Sodio</td><td>5 mg</td><td>0%</td></tr>
+                            <tr><td class="fw-bold">Vitamina C</td><td class="fw-bold">60 mg</td><td class="fw-bold">67%</td></tr>
+                            <tr><td class="fw-bold">Colina</td><td class="fw-bold">100 mg</td><td class="fw-bold">18%</td></tr>
+                            <tr><td class="fw-bold">Cafeína natural</td><td class="fw-bold">25 mg</td><td class="fw-bold">**</td></tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="comunidad" class="bg-light-section container">
-        <div class="text-center mb-5 pb-3">
-            <h2 class="display-section">Voces de la Comunidad Baya Mente</h2>
-        </div>
-        <div class="row g-4 px-lg-4 mb-5">
-            <div class="col-md-4">
-                <div class="testimonial-card">
-                    <div class="text-warning mb-3">⭐⭐⭐⭐⭐</div>
-                    <p class="text-muted fs-6">"Pude concentrarme durante horas en mi tesis sin sentir el cansancio mental de siempre."</p>
-                    <div class="client-info">
-                        <div class="client-avatar">AC</div>
-                        <div><h6 class="mb-0">Andrea C.</h6><small class="text-muted">Universitaria</small></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="testimonial-card">
-                    <div class="text-warning mb-3">⭐⭐⭐⭐⭐</div>
-                    <p class="text-muted fs-6">"Baya Mente Arándano me da lucidez sin el nerviosismo del café. Producto top."</p>
-                    <div class="client-info">
-                        <div class="client-avatar" style="background-color: var(--bm-green);">RG</div>
-                        <div><h6 class="mb-0">Ricardo G.</h6><small class="text-muted">Desarrollador</small></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="testimonial-card">
-                    <div class="text-warning mb-3">⭐⭐⭐⭐⭐</div>
-                    <p class="text-muted fs-6">"El sabor Frambuesa realmente me ayuda a destrabar mi creatividad cuando diseño."</p>
-                    <div class="client-info">
-                        <div class="client-avatar" style="background-color: var(--bm-turquoise); color: white;">LM</div>
-                        <div><h6 class="mb-0">Lucía M.</h6><small class="text-muted">Diseñadora</small></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row g-4 px-5 pt-5 border-top text-center mt-4">
-            <div class="col-lg-3 col-md-6 process-step">
-                <div class="process-icon"><i class="bi bi-tree"></i></div>
-                <h5>1. Selección Botánica</h5>
-            </div>
-            <div class="col-lg-3 col-md-6 process-step">
-                <div class="process-icon" style="background-color: var(--bm-purple);"><i class="bi bi-capsule"></i></div>
-                <h5>2. Formulación</h5>
-            </div>
-            <div class="col-lg-3 col-md-6 process-step">
-                <div class="process-icon" style="background-color: var(--bm-pink);"><i class="bi bi-industrial-pyramid"></i></div>
-                <h5>3. Producción Limpia</h5>
-            </div>
-            <div class="col-lg-3 col-md-6 process-step">
-                <div class="process-icon" style="background-color: var(--bm-green);"><i class="bi bi-check-all"></i></div>
-                <h5>4. Control V05</h5>
             </div>
         </div>
     </section>
@@ -597,34 +529,25 @@
             <div class="row g-5 mb-5">
                 <div class="col-lg-4">
                     <h4 class="text-white mb-3">Baya<span style="color: var(--bm-turquoise);">Mente</span></h4>
-                    <p class="small text-white-50" style="max-width: 300px;">Optimización cognitiva natural hecha en Bolivia. Potencia tu productividad sin comprometer tu bienestar.</p>
+                    <p class="small text-white-50" style="max-width: 300px;">Optimización cognitiva natural hecha en Bolivia. Potencia tu productividad sin comprometer tu bienestar emocional.</p>
                 </div>
-                <div class="col-lg-2 col-md-4">
-                    <h5>Navegación</h5>
-                    <ul class="list-unstyled small d-flex flex-column gap-2">
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#catalogo">Tienda Virtual</a></li>
-                        <li><a href="#comunidad">Comunidad</a></li>
-                        <li><a href="#mision">Nuestra Ciencia</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <h5>Contacto Oficial</h5>
-                    <p class="small text-white-50 mb-2"><i class="bi bi-geo-alt me-2"></i>La Paz - Bolivia</p>
+                <div class="col-lg-4 col-md-6">
+                    <h5>Atención al Cliente</h5>
+                    <p class="small text-white-50 mb-2"><i class="bi bi-geo-alt me-2"></i>La Paz, Bolivia</p>
                     <p class="small text-white-50 mb-2"><i class="bi bi-telephone me-2"></i>+591 64130673</p>
-                    <p class="small text-white-50"><i class="bi bi-envelope me-2"></i>hola@bayamente.com</p>
+                    <p class="small text-white-50"><i class="bi bi-envelope me-2"></i>bayamente.bo@gmail.com</p>
                 </div>
-                <div class="col-lg-3 col-md-4">
-                    <h5>Sigue el Impulso</h5>
+                <div class="col-lg-4 col-md-6">
+                    <h5>Redes Oficiales</h5>
                     <div class="d-flex gap-3 fs-4 text-white-50">
                         <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-tiktok"></i></a>
                         <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="#"><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
             </div>
             <div class="pt-4 border-top border-secondary border-opacity-25 text-center text-white-50 small">
-                &copy; 2026 BAYA MENTE. Todos los derechos reservados. | Desarrollado según Manual de Marca V05.
+                &copy; 2026 BAYA MENTE. Lote: BG-0526-01 | Emprendimiento de bienestar.
             </div>
         </div>
     </footer>
@@ -700,7 +623,6 @@
                                         <option value="" selected disabled>Selecciona una opción...</option>
                                         <option value="QR">Transferencia Bancaria / QR</option>
                                         <option value="Efectivo">Efectivo contra entrega</option>
-                                        <option value="Tarjeta">Tarjeta de Crédito / Débito</option>
                                     </select>
                                 </div>
                             </form>
@@ -709,7 +631,7 @@
                 </div>
 
                 <div class="modal-footer bg-white border-top-0 pt-0 pb-4 px-5 justify-content-between">
-                    <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cerrar y Revisar Catálogo</button>
+                    <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cerrar y Seguir Comprando</button>
                     <button type="button" class="btn btn-bm-primary px-5 m-0" onclick="procesarCompra()">Procesar Orden Completa <i class="bi bi-check-circle ms-2"></i></button>
                 </div>
             </div>
@@ -718,50 +640,77 @@
 
     <script>
         let carrito = [];
-        let contador = 0;
+        
+        // Generador de ID único para identificar productos repetidos
+        const generarId = () => Date.now().toString() + Math.random().toString(36).substr(2, 5);
+
+        // Actualizar el número en el ícono del carrito
+        function actualizarContador() {
+            document.getElementById('cart-count').innerText = carrito.length;
+        }
 
         function agregarAlCarrito(nombreProducto, precio) {
-            carrito.push({ producto: nombreProducto, precio: precio });
-            contador++;
-            document.getElementById('cart-count').innerText = contador;
+            const nuevoItem = { id: generarId(), producto: nombreProducto, precio: precio };
+            carrito.push(nuevoItem);
+            actualizarContador();
             
-            // Efecto visual en el botón
+            // Efecto visual en el botón superior
             const btnCart = document.querySelector('.btn-bm-primary.position-relative');
             btnCart.classList.add('shadow-lg');
             setTimeout(() => btnCart.classList.remove('shadow-lg'), 300);
+            
+            console.log(`Log: Agregado ${nombreProducto}`);
         }
 
-        function abrirCarrito() {
-            if(carrito.length === 0) {
-                alert("🛒 Tu bolsa de compras Baya Mente está vacía. ¡Agrega unas gomitas primero!");
-                return;
-            }
+        // Nueva función para quitar un producto específico del carrito
+        function eliminarDelCarrito(idAEliminar) {
+            carrito = carrito.filter(item => item.id !== idAEliminar);
+            actualizarContador();
+            renderizarListaCarrito(); // Volver a dibujar la lista dentro del modal
+        }
 
+        // Función que dibuja el HTML del carrito
+        function renderizarListaCarrito() {
             const listaHTML = document.getElementById('lista-carrito-modal');
             const totalHTML = document.getElementById('total-carrito-modal');
             
             listaHTML.innerHTML = ''; 
             let total = 0;
 
-            carrito.forEach((item, index) => {
-                total += item.precio;
-                listaHTML.innerHTML += `
-                    <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-3 bg-transparent border-secondary border-opacity-10">
-                        <span class="fw-bold text-dark fs-6">${item.producto}</span>
-                        <span class="badge rounded-pill fs-6" style="background-color: var(--bm-pink); color: var(--bm-purple);">Bs. ${item.precio}.00</span>
-                    </li>
-                `;
-            });
-
+            if (carrito.length === 0) {
+                listaHTML.innerHTML = '<li class="list-group-item text-center text-muted border-0">Tu bolsa está vacía</li>';
+            } else {
+                carrito.forEach((item) => {
+                    total += item.precio;
+                    listaHTML.innerHTML += `
+                        <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-2 bg-transparent border-secondary border-opacity-10">
+                            <span class="fw-bold text-dark fs-6">${item.producto}</span>
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="badge rounded-pill fs-6" style="background-color: var(--bm-pink); color: var(--bm-purple);">Bs. ${item.precio}.00</span>
+                                <button type="button" class="btn-bm-danger-outline" onclick="eliminarDelCarrito('${item.id}')" title="Quitar producto">
+                                    <i class="bi bi-trash3"></i>
+                                </button>
+                            </div>
+                        </li>
+                    `;
+                });
+            }
             totalHTML.innerText = total + ".00";
+        }
 
+        function abrirCarrito() {
+            renderizarListaCarrito();
             const modalCheckout = new bootstrap.Modal(document.getElementById('checkoutModal'));
             modalCheckout.show();
         }
 
         function procesarCompra() {
+            if(carrito.length === 0) {
+                alert("Debes agregar al menos un producto para procesar la orden.");
+                return;
+            }
+
             const form = document.getElementById('formCheckout');
-            
             if (!form.checkValidity()) {
                 form.reportValidity();
                 return;
@@ -775,19 +724,18 @@
                 metodoPago: document.getElementById('clientePago').value
             };
 
-            // Lógica final para base de datos
-            console.log("NUEVO PEDIDO:", cliente, carrito);
+            // Aquí enviarías los datos a Google Sheets/Excel
+            console.log("DATOS PARA EXCEL:", { cliente, pedido: carrito });
             
             const modalElement = document.getElementById('checkoutModal');
             const modalInstance = bootstrap.Modal.getInstance(modalElement);
             modalInstance.hide();
 
-            alert(`¡Procesamiento Exitoso, ${cliente.nombre}!\n\nHemos registrado la compra y se preparará para el envío a: ${cliente.direccion}.\n\nEsta información ya está formateada para enlazarse con tu futura base de datos de Excel.`);
+            alert(`¡Pedido Registrado con Éxito, ${cliente.nombre}!\n\nTu orden será enviada a: ${cliente.direccion}.\n\nYa podemos conectar este formulario a tu Base de Datos.`);
             
             // Limpieza post-compra
             carrito = [];
-            contador = 0;
-            document.getElementById('cart-count').innerText = contador;
+            actualizarContador();
             form.reset();
         }
     </script>
