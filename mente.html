@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baya Mente | Plataforma Oficial de Nutrición Cognitiva Premium</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     
     <style>
         :root {
@@ -17,6 +17,11 @@
             --bm-light-bg: #f8f9fc;
             --bm-white: #ffffff;
             --transition-premium: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Desplazamiento suave para toda la página */
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -34,80 +39,58 @@
             letter-spacing: -0.5px;
         }
 
-        /* Títulos Grandes */
         .display-section {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 1.5rem;
         }
 
-        /* Top Bar */
         .top-bar {
             background-color: var(--bm-purple);
             color: #ffffff;
             font-size: 0.9rem;
             font-weight: 600;
             letter-spacing: 2px;
-            animation: fadeInDown 0.5s ease;
         }
 
-        /* Navbar Premium */
         .navbar {
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(51, 42, 102, 0.08);
-            padding: 20px 0;
+            padding: 15px 0;
             transition: var(--transition-premium);
         }
-        .navbar-brand {
-            font-size: 1.9rem;
-            font-weight: 800;
-        }
-        .navbar-brand span {
-            color: var(--bm-turquoise);
-        }
+        .navbar-brand { font-size: 1.8rem; font-weight: 800; }
+        .navbar-brand span { color: var(--bm-turquoise); }
         .nav-link {
             color: var(--bm-blue) !important;
             font-weight: 600;
             font-size: 1.05rem;
             margin: 0 10px;
-            position: relative;
         }
-        .nav-link:hover {
-            color: var(--bm-turquoise) !important;
-        }
+        .nav-link:hover { color: var(--bm-turquoise) !important; }
 
-        /* Hero Section */
         .hero-section {
             background: radial-gradient(circle at 85% 30%, rgba(242, 181, 181, 0.2) 0%, rgba(255,255,255,1) 70%);
-            padding: 160px 0;
+            padding: 120px 0;
         }
-        .hero-title {
-            font-size: 4.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-        }
-        .hero-image-mockup {
-            transform: scale(1.1);
-            animation: float 6s ease-in-out infinite;
-        }
+        .hero-title { font-size: 4rem; font-weight: 800; line-height: 1.1; }
+        .hero-image-mockup { transform: scale(1.1); animation: float 6s ease-in-out infinite; }
 
         @keyframes float {
             0% { transform: scale(1.1) translateY(0px); }
-            50% { transform: scale(1.1) translateY(-20px); }
+            50% { transform: scale(1.1) translateY(-15px); }
             100% { transform: scale(1.1) translateY(0px); }
         }
 
-        /* Botones Profesionales */
         .btn-bm-primary {
             background-color: var(--bm-turquoise);
             color: #ffffff;
             font-weight: 700;
             border: none;
-            padding: 16px 40px;
+            padding: 14px 35px;
             border-radius: 50px;
-            font-size: 1.1rem;
             box-shadow: 0 6px 20px rgba(85, 174, 183, 0.3);
             transition: var(--transition-premium);
         }
@@ -115,8 +98,8 @@
             background-color: #3f99a2;
             color: #ffffff;
             transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(85, 174, 183, 0.5);
         }
+        
         .btn-bm-danger-outline {
             color: #dc3545;
             border: 1px solid #dc3545;
@@ -129,62 +112,40 @@
             justify-content: center;
             transition: 0.3s;
         }
-        .btn-bm-danger-outline:hover {
-            background: #dc3545;
-            color: white;
-        }
+        .btn-bm-danger-outline:hover { background: #dc3545; color: white; }
 
-        /* Secciones con espaciado */
-        section {
-            padding: 100px 0;
-        }
-        .bg-light-section {
-            background-color: var(--bm-light-bg);
-            border-radius: 60px;
-        }
+        section { padding: 90px 0; }
+        .bg-light-section { background-color: var(--bm-light-bg); border-radius: 60px; }
 
-        /* Sistema de Pestañas (Tabs) */
         .nav-pills .nav-link-tab {
             color: var(--bm-blue);
-            background: none;
             border: 1px solid rgba(74, 100, 159, 0.2);
-            padding: 12px 30px;
+            padding: 10px 25px;
             border-radius: 50px;
             font-weight: 600;
-            transition: var(--transition-premium);
             margin: 0 5px;
         }
         .nav-pills .nav-link-tab.active {
             background-color: var(--bm-purple);
             color: #ffffff;
-            border-color: var(--bm-purple);
         }
 
-        /* Tarjetas de Producto Modernas */
         .product-card {
             border: none;
             border-radius: 30px;
             background: #ffffff;
-            box-shadow: 0 15px 40px rgba(51, 42, 102, 0.05);
+            box-shadow: 0 10px 30px rgba(51, 42, 102, 0.05);
             transition: var(--transition-premium);
-            overflow: hidden;
         }
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 60px rgba(51, 42, 102, 0.12);
-        }
-        .product-img-wrapper {
-            padding: 50px 20px;
-            text-align: center;
-            position: relative;
-        }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(51, 42, 102, 0.1); }
+        .product-img-wrapper { padding: 40px 20px; text-align: center; position: relative; border-radius: 30px 30px 0 0; }
         
         /* Paleta de colores para los sabores */
         .bg-fresa { background-color: var(--bm-pink); }
         .bg-arandano { background-color: var(--bm-purple); }
-        .bg-pina { background-color: #f6c042; } /* Amarillo para piña */
+        .bg-pina { background-color: #f6c042; } 
         .bg-kiwi { background-color: var(--bm-green); }
-        .bg-frutosrojos { background-color: #d1495b; } /* Rojo más oscuro */
+        .bg-frutosrojos { background-color: #d1495b; } 
         .bg-platano { background-color: #f7d060; }
         .bg-naranja { background-color: #f08a5d; }
         .bg-cereza { background-color: #9d0208; }
@@ -201,40 +162,59 @@
             border-radius: 20px;
         }
 
-        /* Acordeón FAQ y Nutrición */
         .accordion-item {
-            border: none;
-            margin-bottom: 15px;
             border-radius: 15px !important;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
             border: 1px solid rgba(51, 42, 102, 0.08);
+            margin-bottom: 10px;
         }
-        .accordion-button {
-            font-weight: 600;
-            padding: 20px;
-            color: var(--bm-purple);
-        }
-        .accordion-button:not(.collapsed) {
-            background-color: rgba(85, 174, 183, 0.1);
-            color: var(--bm-turquoise);
-        }
+        .accordion-button { font-weight: 600; color: var(--bm-purple); }
+        .accordion-button:not(.collapsed) { background-color: rgba(85, 174, 183, 0.1); color: var(--bm-turquoise); }
         
-        .nutritional-table th {
-            background-color: var(--bm-purple);
-            color: white;
+        .nutritional-table th { background-color: var(--bm-purple); color: white; }
+
+        .mv-card {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            height: 100%;
+            border: 1px solid rgba(51, 42, 102, 0.05);
+            box-shadow: 0 10px 30px rgba(51, 42, 102, 0.03);
         }
 
-        /* Footer */
         footer {
             background-color: var(--bm-purple);
             color: white;
-            padding: 100px 0 40px 0;
-            margin-top: 80px;
+            padding: 80px 0 30px 0;
         }
-        footer h5 { color: white; margin-bottom: 25px; }
-        footer a { color: rgba(255,255,255,0.7); text-decoration: none; transition: 0.3s; }
-        footer a:hover { color: var(--bm-pink); padding-left: 5px; }
+        footer h5 { color: white; }
+        footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+        footer a:hover { color: var(--bm-pink); }
+
+        /* Estilo para Botón flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 32px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            color: white;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -252,11 +232,12 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#mision">Beneficios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#beneficios">Beneficios</a></li>
                     <li class="nav-item"><a class="nav-link" href="#catalogo">Catálogo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#informacion">Nutrición</a></li>
-                    <li class="nav-item ms-lg-4">
-                        <button class="btn btn-bm-primary position-relative" onclick="abrirCarrito()">
+                    <li class="nav-item"><a class="nav-link" href="#informacion">Fórmula</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <button class="btn btn-bm-primary position-relative w-100" onclick="abrirCarrito()">
                             <i class="bi bi-cart-check me-2"></i> Mi Pedido
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">0</span>
                         </button>
@@ -278,7 +259,7 @@
                     <a href="#catalogo" class="btn btn-bm-primary btn-lg">Comprar Sabores</a>
                 </div>
                 <div class="col-lg-5 text-center hero-image-mockup">
-                    <div class="p-5 rounded-5 shadow-lg d-inline-block text-start" style="background-color: var(--bm-purple); width: 100%; max-width: 400px; color: white;">
+                    <div class="p-5 rounded-5 shadow-lg d-inline-block text-start" style="background-color: var(--bm-purple); width: 100%; max-width: 380px; color: white;">
                         <h2 class="text-white mb-2">BayaMente</h2>
                         <p class="small text-uppercase tracking-widest" style="color: var(--bm-pink);">Gomitas con Suplementos</p>
                         <div class="text-center my-5 py-3">
@@ -294,10 +275,60 @@
         </div>
     </section>
 
-    <section id="catalogo" class="container bg-light-section py-5 my-5">
+    <section id="nosotros" class="container bg-light-section py-5 my-5">
         <div class="text-center mb-5 pb-3 pt-4">
-            <span class="text-uppercase fw-bold tracking-widest small" style="color: var(--bm-blue);">Selección de Sabores</span>
-            <h2 class="display-section mt-2">Nuestra Colección</h2>
+            <span class="text-uppercase fw-bold tracking-widest small" style="color: var(--bm-blue);">Nuestra Esencia</span>
+            <h2 class="display-section mt-2">¿Quiénes somos?</h2>
+            <p class="text-muted max-w-xl mx-auto">Un emprendimiento enfocado en combinar el concepto de snack dulce con beneficios funcionales.</p>
+        </div>
+        <div class="row g-4 px-lg-5 mb-4">
+            <div class="col-md-6">
+                <div class="mv-card">
+                    <i class="bi bi-rocket-takeoff display-4 mb-3" style="color: var(--bm-turquoise);"></i>
+                    <h3 class="mb-3">Nuestra Misión</h3>
+                    <p class="text-muted">Ofrecer gomitas funcionales con ingredientes naturales que ayuden a estimular la mente y mejorar la concentración de manera práctica, agradable y accesible.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mv-card">
+                    <i class="bi bi-eye-fill display-4 mb-3" style="color: var(--bm-pink);"></i>
+                    <h3 class="mb-3">Nuestra Visión</h3>
+                    <p class="text-muted">Convertirse en una marca reconocida por innovar en productos funcionales y naturales, siendo una opción confiable para personas que buscan bienestar y energía mental en su día a día.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="beneficios" class="container py-0 my-5">
+        <div class="p-5 rounded-5 shadow-sm" style="background-color: var(--bm-blue); color: white;">
+            <div class="text-center mb-5">
+                <h2 class="text-white">Nuestros Tres Pilares</h2>
+                <p class="opacity-75">Formuladas para brindarte lo mejor en cada gomita.</p>
+            </div>
+            <div class="row text-center g-4">
+                <div class="col-md-4">
+                    <i class="bi bi-bullseye display-4 mb-3" style="color: var(--bm-pink);"></i>
+                    <h4 class="text-white">ENFOQUE</h4>
+                    <p class="small opacity-75">Apoya tu concentración de manera efectiva durante tus actividades cognitivas.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="bi bi-lightning-charge-fill display-4 mb-3" style="color: var(--bm-turquoise);"></i>
+                    <h4 class="text-white">ENERGÍA</h4>
+                    <p class="small opacity-75">Te ayuda a mantener tu día activo y productivo sin altibajos repentinos.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="bi bi-heart-pulse-fill display-4 mb-3" style="color: var(--bm-green);"></i>
+                    <h4 class="text-white">BIENESTAR</h4>
+                    <p class="small opacity-75">Favorece tu equilibrio mental y emocional mediante ingredientes seleccionados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalogo" class="container py-5 my-5 border-top">
+        <div class="text-center mb-5 pb-3 pt-4">
+            <span class="text-uppercase fw-bold tracking-widest small" style="color: var(--bm-blue);">Nuestra Colección</span>
+            <h2 class="display-section mt-2">Elige tu Sabor Favorito</h2>
             
             <div class="d-flex justify-content-center mt-4 mb-5">
                 <ul class="nav nav-pills gap-2" id="flavorTabs" role="tablist">
@@ -308,7 +339,7 @@
                         <button class="nav-link nav-link-tab" id="clasicos-tab" data-bs-toggle="pill" data-bs-target="#tab-clasicos" type="button">Clásicos</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link nav-link-tab" id="temporada-tab" data-bs-toggle="pill" data-bs-target="#tab-temporada" type="button">Edición Temporada</button>
+                        <button class="nav-link nav-link-tab" id="temporada-tab" data-bs-toggle="pill" data-bs-target="#tab-temporada" type="button">Temporada</button>
                     </li>
                 </ul>
             </div>
@@ -425,7 +456,7 @@
                                 <p class="text-muted small mb-3">Cítrico revitalizante</p>
                                 <div class="mt-auto border-top pt-2">
                                     <span class="fw-bold fs-5 d-block mb-2 text-info">Bs. 15.00</span>
-                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Naranja (Temp)', 15)">Añadir</button>
+                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Naranja', 15)">Añadir</button>
                                 </div>
                             </div>
                         </div>
@@ -442,7 +473,7 @@
                                 <p class="text-muted small mb-3">Acento especial</p>
                                 <div class="mt-auto border-top pt-2">
                                     <span class="fw-bold fs-5 d-block mb-2 text-info">Bs. 15.00</span>
-                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Cereza (Temp)', 15)">Añadir</button>
+                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Cereza', 15)">Añadir</button>
                                 </div>
                             </div>
                         </div>
@@ -452,7 +483,7 @@
             </div>
             
             <div class="tab-pane fade text-center py-5" id="tab-clasicos" role="tabpanel">
-                <h4 class="text-muted">Desliza en "Todos los Sabores" para ver nuestra línea regular de 6 sabores base.</h4>
+                <h4 class="text-muted">Desliza en "Todos los Sabores" para ver nuestra línea de 6 sabores base permanentes.</h4>
             </div>
 
             <div class="tab-pane fade text-center py-5" id="tab-temporada" role="tabpanel">
@@ -461,11 +492,11 @@
         </div>
     </section>
 
-    <section id="informacion" class="container">
+    <section id="informacion" class="container mb-5">
         <div class="row g-5 align-items-center">
             <div class="col-lg-6">
                 <h2 class="display-section fs-1">Formulación y Calidad</h2>
-                <p class="text-muted mb-4">Gomitas con suplementos desarrolladas bajo estrictas especificaciones (Plano Mecánico V05). Con azúcar natural de fruta y sin colorantes artificiales.</p>
+                <p class="text-muted mb-4">Gomitas con suplementos desarrolladas bajo estrictas especificaciones. Con azúcar natural de fruta y sin colorantes artificiales.</p>
                 
                 <div class="accordion shadow-sm" id="nutritionAccordion">
                     <div class="accordion-item">
@@ -526,7 +557,7 @@
 
     <footer>
         <div class="container">
-            <div class="row g-5 mb-5">
+            <div class="row g-4 mb-4">
                 <div class="col-lg-4">
                     <h4 class="text-white mb-3">Baya<span style="color: var(--bm-turquoise);">Mente</span></h4>
                     <p class="small text-white-50" style="max-width: 300px;">Optimización cognitiva natural hecha en Bolivia. Potencia tu productividad sin comprometer tu bienestar emocional.</p>
@@ -552,24 +583,36 @@
         </div>
     </footer>
 
-    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+    <a href="https://wa.me/59164130673" target="_blank" class="whatsapp-float" title="¡Escríbenos por WhatsApp!">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1080;">
+        <div id="cartToast" class="toast align-items-center text-white bg-success border-0 shadow-lg" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-bold">
+                    <i class="bi bi-check-circle me-2"></i> ¡Gomitas agregadas a tu pedido!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
-                
                 <div class="modal-header text-white" style="background-color: var(--bm-purple);">
-                    <h5 class="modal-title fw-bold" id="checkoutModalLabel">
+                    <h5 class="modal-title fw-bold">
                         <i class="bi bi-cart-check me-2"></i> Finalizar Pedido
                     </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                
                 <div class="modal-body p-5 bg-light">
                     <div class="row g-5">
                         <div class="col-md-5 order-md-2">
                             <div class="bg-white p-4 rounded-4 shadow-sm h-100 border">
                                 <h5 class="fw-bold mb-4" style="color: var(--bm-blue);">Resumen de Compra</h5>
-                                <ul class="list-group list-group-flush mb-4" id="lista-carrito-modal">
-                                    </ul>
+                                <ul class="list-group list-group-flush mb-4" id="lista-carrito-modal"></ul>
                                 <div class="d-flex justify-content-between align-items-center border-top pt-3 mb-2">
                                     <span class="text-muted">Envío Estándar</span>
                                     <span class="text-success fw-bold">Gratis</span>
@@ -582,41 +625,38 @@
                         </div>
 
                         <div class="col-md-7 order-md-1">
-                            <h5 class="fw-bold mb-4" style="color: var(--bm-purple);">Datos de Facturación y Entrega</h5>
+                            <h5 class="fw-bold mb-4" style="color: var(--bm-purple);">Datos de Entrega</h5>
                             <form id="formCheckout">
                                 <div class="mb-4">
                                     <label class="form-label small fw-bold text-muted">Nombre Completo</label>
                                     <div class="input-group input-group-lg">
                                         <span class="input-group-text bg-white"><i class="bi bi-person"></i></span>
-                                        <input type="text" class="form-control fs-6" id="clienteNombre" placeholder="Ej. Juan Pérez" required>
+                                        <input type="text" class="form-control fs-6" id="clienteNombre" required>
                                     </div>
                                 </div>
-                                
                                 <div class="row g-4 mb-4">
                                     <div class="col-md-6">
-                                        <label class="form-label small fw-bold text-muted">Teléfono / WhatsApp</label>
+                                        <label class="form-label small fw-bold text-muted">Teléfono</label>
                                         <div class="input-group input-group-lg">
                                             <span class="input-group-text bg-white"><i class="bi bi-telephone"></i></span>
-                                            <input type="tel" class="form-control fs-6" id="clienteTelefono" placeholder="Ej. 69912345" required>
+                                            <input type="tel" class="form-control fs-6" id="clienteTelefono" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label small fw-bold text-muted">Correo Electrónico</label>
+                                        <label class="form-label small fw-bold text-muted">Correo</label>
                                         <div class="input-group input-group-lg">
                                             <span class="input-group-text bg-white"><i class="bi bi-envelope"></i></span>
-                                            <input type="email" class="form-control fs-6" id="clienteCorreo" placeholder="hola@correo.com" required>
+                                            <input type="email" class="form-control fs-6" id="clienteCorreo" required>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="mb-4">
-                                    <label class="form-label small fw-bold text-muted">Dirección de Entrega</label>
+                                    <label class="form-label small fw-bold text-muted">Dirección</label>
                                     <div class="input-group input-group-lg">
                                         <span class="input-group-text bg-white"><i class="bi bi-geo-alt"></i></span>
-                                        <input type="text" class="form-control fs-6" id="clienteDireccion" placeholder="Ej. Av. Juan Pablo II, El Alto" required>
+                                        <input type="text" class="form-control fs-6" id="clienteDireccion" required>
                                     </div>
                                 </div>
-
                                 <div class="mb-4">
                                     <label class="form-label small fw-bold text-muted">Método de Pago</label>
                                     <select class="form-select form-select-lg fs-6" id="clientePago" required>
@@ -629,10 +669,9 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="modal-footer bg-white border-top-0 pt-0 pb-4 px-5 justify-content-between">
-                    <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cerrar y Seguir Comprando</button>
-                    <button type="button" class="btn btn-bm-primary px-5 m-0" onclick="procesarCompra()">Procesar Orden Completa <i class="bi bi-check-circle ms-2"></i></button>
+                    <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Seguir Comprando</button>
+                    <button type="button" class="btn btn-bm-primary px-5 m-0" onclick="procesarCompra()">Procesar Orden <i class="bi bi-check-circle ms-2"></i></button>
                 </div>
             </div>
         </div>
@@ -640,40 +679,42 @@
 
     <script>
         let carrito = [];
-        
-        // Generador de ID único para identificar productos repetidos
         const generarId = () => Date.now().toString() + Math.random().toString(36).substr(2, 5);
 
-        // Actualizar el número en el ícono del carrito
-        function actualizarContador() {
-            document.getElementById('cart-count').innerText = carrito.length;
+        // Actualiza el número de productos en el botón
+        function actualizarContador() { 
+            document.getElementById('cart-count').innerText = carrito.length; 
+        }
+
+        // Muestra la alerta elegante (Toast)
+        function mostrarToast() {
+            const toastEl = document.getElementById('cartToast');
+            const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+            toast.show();
         }
 
         function agregarAlCarrito(nombreProducto, precio) {
-            const nuevoItem = { id: generarId(), producto: nombreProducto, precio: precio };
-            carrito.push(nuevoItem);
+            carrito.push({ id: generarId(), producto: nombreProducto, precio: precio });
             actualizarContador();
             
-            // Efecto visual en el botón superior
+            // Llama al aviso visual nuevo
+            mostrarToast();
+
+            // Animación del botón principal
             const btnCart = document.querySelector('.btn-bm-primary.position-relative');
             btnCart.classList.add('shadow-lg');
             setTimeout(() => btnCart.classList.remove('shadow-lg'), 300);
-            
-            console.log(`Log: Agregado ${nombreProducto}`);
         }
 
-        // Nueva función para quitar un producto específico del carrito
         function eliminarDelCarrito(idAEliminar) {
             carrito = carrito.filter(item => item.id !== idAEliminar);
             actualizarContador();
-            renderizarListaCarrito(); // Volver a dibujar la lista dentro del modal
+            renderizarListaCarrito(); 
         }
 
-        // Función que dibuja el HTML del carrito
         function renderizarListaCarrito() {
             const listaHTML = document.getElementById('lista-carrito-modal');
             const totalHTML = document.getElementById('total-carrito-modal');
-            
             listaHTML.innerHTML = ''; 
             let total = 0;
 
@@ -687,7 +728,7 @@
                             <span class="fw-bold text-dark fs-6">${item.producto}</span>
                             <div class="d-flex align-items-center gap-2">
                                 <span class="badge rounded-pill fs-6" style="background-color: var(--bm-pink); color: var(--bm-purple);">Bs. ${item.precio}.00</span>
-                                <button type="button" class="btn-bm-danger-outline" onclick="eliminarDelCarrito('${item.id}')" title="Quitar producto">
+                                <button type="button" class="btn-bm-danger-outline" onclick="eliminarDelCarrito('${item.id}')" title="Quitar">
                                     <i class="bi bi-trash3"></i>
                                 </button>
                             </div>
@@ -706,40 +747,21 @@
 
         function procesarCompra() {
             if(carrito.length === 0) {
-                alert("Debes agregar al menos un producto para procesar la orden.");
+                alert("Agrega al menos un producto.");
                 return;
             }
-
             const form = document.getElementById('formCheckout');
             if (!form.checkValidity()) {
                 form.reportValidity();
                 return;
             }
-
-            const cliente = {
-                nombre: document.getElementById('clienteNombre').value,
-                telefono: document.getElementById('clienteTelefono').value,
-                correo: document.getElementById('clienteCorreo').value,
-                direccion: document.getElementById('clienteDireccion').value,
-                metodoPago: document.getElementById('clientePago').value
-            };
-
-            // Aquí enviarías los datos a Google Sheets/Excel
-            console.log("DATOS PARA EXCEL:", { cliente, pedido: carrito });
-            
-            const modalElement = document.getElementById('checkoutModal');
-            const modalInstance = bootstrap.Modal.getInstance(modalElement);
-            modalInstance.hide();
-
-            alert(`¡Pedido Registrado con Éxito, ${cliente.nombre}!\n\nTu orden será enviada a: ${cliente.direccion}.\n\nYa podemos conectar este formulario a tu Base de Datos.`);
-            
-            // Limpieza post-compra
+            alert("¡Pedido Registrado con Éxito!\nYa podemos conectar este formulario a tu Base de Datos en Excel.");
             carrito = [];
             actualizarContador();
             form.reset();
+            bootstrap.Modal.getInstance(document.getElementById('checkoutModal')).hide();
         }
     </script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
