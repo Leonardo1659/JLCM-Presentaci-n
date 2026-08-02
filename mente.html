@@ -3,243 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baya Mente | Plataforma Oficial de Nutrición Cognitiva Premium</title>
+    <title>Baya Mente | Botánica y Bienestar Gourmet</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     
     <style>
         :root {
+            /* Colores de Marca */
             --bm-purple: #332a66;      
             --bm-turquoise: #55aeb7;   
             --bm-pink: #f2b5b5;        
             --bm-blue: #4a649f;        
             --bm-green: #81c391;       
-            --bm-light-bg: #f8f9fc;
+            --bm-light-bg: #fcfcfd;
             --bm-white: #ffffff;
+            
+            /* Tipografías del Manual */
+            --font-principal: 'Cocogoose', 'Montserrat', sans-serif;
+            --font-secundaria: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            
             --transition-premium: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Desplazamiento suave para toda la página */
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            color: var(--bm-purple);
-            background-color: var(--bm-white);
-            overflow-x: hidden;
-            font-size: 1.1rem;
-            line-height: 1.7;
+            font-family: var(--font-secundaria); color: var(--bm-purple); background-color: var(--bm-white);
+            overflow-x: hidden; font-size: 1.05rem; line-height: 1.7; font-weight: 400;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-            color: var(--bm-purple);
-            letter-spacing: -0.5px;
-        }
+        h1, h2, h3, h4, h5, .font-principal { font-family: var(--font-principal); color: var(--bm-purple); font-weight: 700; }
+        .subtitle-regular { font-family: var(--font-principal); font-weight: 400; }
+        .display-section { font-size: 3.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; letter-spacing: -0.5px; }
 
-        .display-section {
-            font-size: 3rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
+        /* Top Bar */
+        .top-bar { background: linear-gradient(90deg, var(--bm-purple), #4a3e8c); color: #ffffff; font-size: 0.85rem; font-weight: 300; letter-spacing: 3px; padding: 10px 0; }
 
-        .top-bar {
-            background-color: var(--bm-purple);
-            color: #ffffff;
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-        }
-
-        .navbar {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(51, 42, 102, 0.08);
-            padding: 15px 0;
-            transition: var(--transition-premium);
-        }
-        .navbar-brand { font-size: 1.8rem; font-weight: 800; }
+        /* Navbar */
+        .navbar { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(51, 42, 102, 0.05); padding: 15px 0; transition: var(--transition-premium); }
+        .navbar-brand { font-family: var(--font-principal); font-size: 1.8rem; font-weight: 800; letter-spacing: -1px; }
         .navbar-brand span { color: var(--bm-turquoise); }
-        .nav-link {
-            color: var(--bm-blue) !important;
-            font-weight: 600;
-            font-size: 1.05rem;
-            margin: 0 10px;
-        }
-        .nav-link:hover { color: var(--bm-turquoise) !important; }
+        .nav-link { color: var(--bm-blue) !important; font-weight: 600; font-size: 1rem; margin: 0 12px; position: relative; }
+        .nav-link:hover { color: var(--bm-purple) !important; }
 
-        .hero-section {
-            background: radial-gradient(circle at 85% 30%, rgba(242, 181, 181, 0.2) 0%, rgba(255,255,255,1) 70%);
-            padding: 120px 0;
-        }
-        .hero-title { font-size: 4rem; font-weight: 800; line-height: 1.1; }
-        .hero-image-mockup { transform: scale(1.1); animation: float 6s ease-in-out infinite; }
-
-        @keyframes float {
-            0% { transform: scale(1.1) translateY(0px); }
-            50% { transform: scale(1.1) translateY(-15px); }
-            100% { transform: scale(1.1) translateY(0px); }
-        }
-
+        /* Botones / CTA */
         .btn-bm-primary {
-            background-color: var(--bm-turquoise);
-            color: #ffffff;
-            font-weight: 700;
-            border: none;
-            padding: 14px 35px;
-            border-radius: 50px;
-            box-shadow: 0 6px 20px rgba(85, 174, 183, 0.3);
-            transition: var(--transition-premium);
+            background: linear-gradient(135deg, var(--bm-turquoise), #489da6); color: #ffffff; font-family: var(--font-secundaria);
+            font-weight: 700; font-style: italic; border: none; padding: 14px 35px; border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(85, 174, 183, 0.35); transition: var(--transition-premium); letter-spacing: 0.5px;
         }
-        .btn-bm-primary:hover {
-            background-color: #3f99a2;
-            color: #ffffff;
-            transform: translateY(-4px);
-        }
+        .btn-bm-primary:hover { background: linear-gradient(135deg, #489da6, var(--bm-turquoise)); color: #ffffff; transform: translateY(-5px); box-shadow: 0 12px 30px rgba(85, 174, 183, 0.5); }
+
+        /* Hero Section */
+        .hero-section { position: relative; background: linear-gradient(180deg, rgba(242, 181, 181, 0.15) 0%, rgba(255,255,255,1) 100%); padding: 120px 0 160px 0; overflow: hidden; }
+        .hero-title { font-size: 4.5rem; font-weight: 800; line-height: 1.1; }
+        .hero-image-mockup { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+
+        /* Trust Banner (Cinta de garantías) */
+        .trust-banner { background: var(--bm-purple); color: white; padding: 30px 0; position: relative; z-index: 10; margin-top: -30px; border-radius: 30px; box-shadow: 0 20px 40px rgba(51, 42, 102, 0.15); }
+        .trust-item { display: flex; align-items: center; justify-content: center; gap: 15px; }
+        .trust-item i { font-size: 2rem; color: var(--bm-turquoise); }
+        .trust-text h6 { margin: 0; font-family: var(--font-principal); color: white; font-size: 0.95rem; }
+        .trust-text p { margin: 0; font-size: 0.8rem; opacity: 0.7; }
+
+        section { padding: 100px 0; }
+        .bg-light-section { background-color: var(--bm-light-bg); }
+
+        /* Tarjetas de Beneficios */
+        .mv-card { background: white; padding: 45px 35px; border-radius: 40px; height: 100%; border: 1px solid rgba(51, 42, 102, 0.04); box-shadow: 0 15px 40px rgba(51, 42, 102, 0.03); transition: var(--transition-premium); }
+        .mv-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(51, 42, 102, 0.06); }
+        .icon-box { width: 55px; height: 55px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-right: 15px; flex-shrink: 0; }
+        .bg-icon-pink { background: rgba(242, 181, 181, 0.2); color: #d96969; }
+        .bg-icon-purple { background: rgba(51, 42, 102, 0.1); color: var(--bm-purple); }
+        .bg-icon-turquoise { background: rgba(85, 174, 183, 0.15); color: #3b8b93; }
+        .bg-icon-orange { background: rgba(240, 138, 93, 0.15); color: #d96c3d; }
+        .bg-icon-green { background: rgba(129, 195, 145, 0.2); color: #5d9e6c; }
+        .benefit-list li { margin-bottom: 25px; line-height: 1.6; }
+
+        /* Proceso Artesanal (Steps) */
+        .step-circle { width: 80px; height: 80px; background: linear-gradient(135deg, var(--bm-turquoise), var(--bm-blue)); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 20px auto; font-family: var(--font-principal); font-weight: 700; box-shadow: 0 10px 25px rgba(85, 174, 183, 0.3); }
+        .step-line { position: relative; }
+        .step-line::after { content: ''; position: absolute; top: 40px; right: -50%; width: 100%; height: 2px; background: dashed 2px rgba(51, 42, 102, 0.1); z-index: -1; }
+        @media (max-width: 991px) { .step-line::after { display: none; } }
+
+        /* Tarjetas de Producto */
+        .product-card { border: 1px solid rgba(51, 42, 102, 0.03); border-radius: 40px; background: #ffffff; box-shadow: 0 15px 45px rgba(0, 0, 0, 0.04); transition: var(--transition-premium); overflow: hidden; }
+        .product-card:hover { transform: translateY(-12px); box-shadow: 0 30px 60px rgba(51, 42, 102, 0.08); }
+        .product-img-wrapper { padding: 60px 20px; text-align: center; margin: 10px 10px 0 10px; border-radius: 30px; transition: var(--transition-premium); }
+        .bg-fresa { background: linear-gradient(135deg, #fdfbfb 0%, var(--bm-pink) 100%); }
+        .bg-arandano { background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); }
+        .bg-naranja { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); }
+        .product-card:hover .product-img-wrapper i { transform: scale(1.15) rotate(5deg); }
+        .product-img-wrapper i { transition: var(--transition-premium); filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.1)); }
+        .tag-info { display: inline-block; padding: 6px 15px; border-radius: 30px; font-size: 0.75rem; font-weight: 700; margin-bottom: 15px; }
+
+        /* Testimonios */
+        .testimonial-card { background: white; padding: 40px; border-radius: 30px; text-align: center; border: 1px solid rgba(51, 42, 102, 0.05); }
+        .testimonial-stars i { color: #f6c042; font-size: 1.2rem; margin: 0 2px; }
+        .testimonial-text { font-style: italic; color: #6c757d; font-size: 1.05rem; margin: 20px 0; }
+        .testimonial-author { font-family: var(--font-principal); font-weight: 700; color: var(--bm-purple); }
+
+        /* Tablas Nutricionales - CORREGIDAS A FONDO CLARO */
+        .nav-tabs .nav-link { color: var(--bm-blue); font-family: var(--font-principal); font-weight: 700; border: none; border-bottom: 3px solid transparent; padding: 15px 20px; }
+        .nav-tabs .nav-link.active { color: var(--bm-purple); border-bottom: 3px solid var(--bm-turquoise); background: transparent; }
+        .nav-tabs { border-bottom: 2px solid rgba(51, 42, 102, 0.1); }
         
-        .btn-bm-danger-outline {
-            color: #dc3545;
-            border: 1px solid #dc3545;
-            background: transparent;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.3s;
-        }
-        .btn-bm-danger-outline:hover { background: #dc3545; color: white; }
+        .nutrition-card { background: #ffffff; padding: 40px; border-radius: 30px; color: var(--bm-purple); border: 1px solid rgba(51, 42, 102, 0.08); }
+        .nutritional-table th, .nutritional-table td { color: var(--bm-purple); border-bottom: 1px solid rgba(51, 42, 102, 0.08); padding: 12px 10px; font-family: var(--font-secundaria); background-color: transparent !important; }
+        .nutritional-table th { font-weight: 700; }
+        .nutritional-table tr:last-child td { border-bottom: none; }
+        .sub-ingredient { padding-left: 20px !important; color: #6c757d !important; font-style: italic; }
 
-        section { padding: 90px 0; }
-        .bg-light-section { background-color: var(--bm-light-bg); border-radius: 60px; }
+        /* FAQ */
+        .accordion-button { font-family: var(--font-principal); font-weight: 700; border-radius: 20px !important; padding: 20px; color: var(--bm-purple); }
+        .accordion-button:not(.collapsed) { background-color: rgba(85, 174, 183, 0.1); color: var(--bm-turquoise); box-shadow: none; }
+        .accordion-item { border-radius: 20px !important; border: 1px solid rgba(51, 42, 102, 0.05); margin-bottom: 15px; overflow: hidden; }
 
-        .nav-pills .nav-link-tab {
-            color: var(--bm-blue);
-            border: 1px solid rgba(74, 100, 159, 0.2);
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-weight: 600;
-            margin: 0 5px;
-        }
-        .nav-pills .nav-link-tab.active {
-            background-color: var(--bm-purple);
-            color: #ffffff;
-        }
-
-        .product-card {
-            border: none;
-            border-radius: 30px;
-            background: #ffffff;
-            box-shadow: 0 10px 30px rgba(51, 42, 102, 0.05);
-            transition: var(--transition-premium);
-        }
-        .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(51, 42, 102, 0.1); }
-        .product-img-wrapper { padding: 40px 20px; text-align: center; position: relative; border-radius: 30px 30px 0 0; }
-        
-        /* Paleta de colores para los sabores */
-        .bg-fresa { background-color: var(--bm-pink); }
-        .bg-arandano { background-color: var(--bm-purple); }
-        .bg-pina { background-color: #f6c042; } 
-        .bg-kiwi { background-color: var(--bm-green); }
-        .bg-frutosrojos { background-color: #d1495b; } 
-        .bg-platano { background-color: #f7d060; }
-        .bg-naranja { background-color: #f08a5d; }
-        .bg-cereza { background-color: #9d0208; }
-
-        .temporada-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255,255,255,0.9);
-            color: var(--bm-purple);
-            font-size: 0.75rem;
-            font-weight: bold;
-            padding: 5px 12px;
-            border-radius: 20px;
-        }
-
-        .accordion-item {
-            border-radius: 15px !important;
-            overflow: hidden;
-            border: 1px solid rgba(51, 42, 102, 0.08);
-            margin-bottom: 10px;
-        }
-        .accordion-button { font-weight: 600; color: var(--bm-purple); }
-        .accordion-button:not(.collapsed) { background-color: rgba(85, 174, 183, 0.1); color: var(--bm-turquoise); }
-        
-        .nutritional-table th { background-color: var(--bm-purple); color: white; }
-
-        .mv-card {
-            background: white;
-            padding: 40px;
-            border-radius: 30px;
-            height: 100%;
-            border: 1px solid rgba(51, 42, 102, 0.05);
-            box-shadow: 0 10px 30px rgba(51, 42, 102, 0.03);
-        }
-
-        footer {
-            background-color: var(--bm-purple);
-            color: white;
-            padding: 80px 0 30px 0;
-        }
-        footer h5 { color: white; }
-        footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+        /* Footer */
+        footer { background-color: var(--bm-purple); color: white; padding: 100px 0 30px 0; border-top-left-radius: 60px; border-top-right-radius: 60px; }
+        footer p, footer a { color: rgba(255,255,255,0.7); font-size: 0.95rem; text-decoration: none; transition: 0.3s; }
         footer a:hover { color: var(--bm-pink); }
-
-        /* Estilo para Botón flotante de WhatsApp */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 32px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-        .whatsapp-float:hover {
-            background-color: #128C7E;
-            color: white;
-            transform: scale(1.1);
-        }
+        .social-icons a { display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.1); color: white; font-size: 1.2rem; margin-right: 10px; transition: 0.3s; }
+        .social-icons a:hover { background: var(--bm-turquoise); transform: translateY(-3px); }
+        .whatsapp-float { position: fixed; width: 65px; height: 65px; bottom: 30px; right: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 35px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 1000; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+        .whatsapp-float:hover { background-color: #128C7E; color: white; transform: scale(1.15) rotate(-5deg); }
     </style>
 </head>
 <body>
 
-    <div class="top-bar text-center py-2 px-3">
-        GOMITAS CON SUPLEMENTOS • ENFOQUE, ENERGÍA Y BIENESTAR
+    <!-- TOP BAR -->
+    <div class="top-bar text-center text-uppercase">
+        Despierta tu mente de forma natural
     </div>
 
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#">Baya<span>Mente</span></a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="bi bi-list fs-1"></i>
+                <i class="bi bi-list fs-1 text-dark"></i>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#beneficios">Beneficios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#beneficios">Propiedades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proceso">Elaboración</a></li>
                     <li class="nav-item"><a class="nav-link" href="#catalogo">Catálogo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#informacion">Fórmula</a></li>
-                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
-                        <button class="btn btn-bm-primary position-relative w-100" onclick="abrirCarrito()">
-                            <i class="bi bi-cart-check me-2"></i> Mi Pedido
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">0</span>
+                    <li class="nav-item"><a class="nav-link" href="#informacion">Nutrición</a></li>
+                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                        <button class="btn btn-bm-primary position-relative" onclick="abrirCarrito()">
+                            Mi Bolsa
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-white" id="cart-count">0</span>
                         </button>
                     </li>
                 </ul>
@@ -247,27 +168,27 @@
         </div>
     </nav>
 
+    <!-- 1. HERO SECTION -->
     <section id="inicio" class="hero-section">
-        <div class="container">
+        <div class="container position-relative z-1">
             <div class="row align-items-center g-5">
-                <div class="col-lg-7">
-                    <span class="badge mb-3 py-2 px-3 rounded-pill" style="background-color: rgba(129, 195, 145, 0.15); color: var(--bm-green); font-weight: 700;">
-                        <i class="bi bi-patch-check-fill me-2"></i> Con Vitamina C y Colina
+                <div class="col-lg-6">
+                    <span class="badge mb-4 py-2 px-3 rounded-pill" style="background-color: rgba(129, 195, 145, 0.15); color: var(--bm-green); font-weight: 700;">
+                        <i class="bi bi-flower1 me-2"></i> INGREDIENTES NATURALES
                     </span>
-                    <h1 class="hero-title mb-4">Desbloquea tu <br><span style="color: var(--bm-turquoise);">máximo potencial</span></h1>
-                    <p class="fs-4 text-muted mb-5" style="max-width: 650px;">Gomitas funcionales premium diseñadas para optimizar el enfoque, la creatividad y la energía mental. Elaboradas con azúcar natural de la fruta.</p>
-                    <a href="#catalogo" class="btn btn-bm-primary btn-lg">Comprar Sabores</a>
+                    <h1 class="hero-title font-principal mb-4">Despierta tu mente <br><span class="subtitle-regular" style="color: var(--bm-turquoise);">de forma natural</span></h1>
+                    <p class="fs-5 text-muted mb-5 font-secundaria fw-light" style="max-width: 550px;">Gomitas funcionales que combinan sabor, energía y concentración en cada momento del día. Sin estrés, sin químicos.</p>
+                    <a href="#catalogo" class="btn btn-bm-primary btn-lg px-5 py-3 fs-6">Activa tu mente con Baya Mente</a>
                 </div>
-                <div class="col-lg-5 text-center hero-image-mockup">
-                    <div class="p-5 rounded-5 shadow-lg d-inline-block text-start" style="background-color: var(--bm-purple); width: 100%; max-width: 380px; color: white;">
-                        <h2 class="text-white mb-2">BayaMente</h2>
-                        <p class="small text-uppercase tracking-widest" style="color: var(--bm-pink);">Gomitas con Suplementos</p>
-                        <div class="text-center my-5 py-3">
-                            <i class="bi bi-stars display-1" style="color: var(--bm-turquoise);"></i>
+                <div class="col-lg-6 text-center hero-image-mockup">
+                    <div class="p-5 rounded-5 shadow-lg d-inline-block text-start position-relative overflow-hidden" style="background: linear-gradient(145deg, var(--bm-purple), #241d4a); width: 100%; max-width: 400px; color: white;">
+                        <div class="position-absolute top-0 end-0 opacity-25" style="transform: translate(30%, -30%);">
+                            <i class="bi bi-flower3" style="font-size: 15rem; color: var(--bm-pink);"></i>
                         </div>
-                        <div class="border-top border-secondary border-opacity-50 pt-3 d-flex justify-content-between small opacity-75">
-                            <span>Sin colorantes art.</span>
-                            <span>Cont. Neto: 15g</span>
+                        <h2 class="text-white mb-2 font-principal">BayaMente</h2>
+                        <p class="small text-uppercase tracking-widest" style="color: var(--bm-pink); font-weight: 600;">Edición Botánica</p>
+                        <div class="text-center my-5 py-4">
+                            <i class="bi bi-stars display-1 text-white opacity-75"></i>
                         </div>
                     </div>
                 </div>
@@ -275,491 +196,491 @@
         </div>
     </section>
 
-    <section id="nosotros" class="container bg-light-section py-5 my-5">
-        <div class="text-center mb-5 pb-3 pt-4">
-            <span class="text-uppercase fw-bold tracking-widest small" style="color: var(--bm-blue);">Nuestra Esencia</span>
-            <h2 class="display-section mt-2">¿Quiénes somos?</h2>
-            <p class="text-muted max-w-xl mx-auto">Un emprendimiento enfocado en combinar el concepto de snack dulce con beneficios funcionales.</p>
+    <!-- TRUST BANNER -->
+    <div class="container">
+        <div class="trust-banner px-4 px-lg-5">
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-3 col-6">
+                    <div class="trust-item">
+                        <i class="bi bi-box-seam"></i>
+                        <div class="trust-text">
+                            <h6>Envío Local</h6>
+                            <p>La Paz y El Alto</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="trust-item">
+                        <i class="bi bi-shield-check"></i>
+                        <div class="trust-text">
+                            <h6>Pago Seguro</h6>
+                            <p>Yape y BCP</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="trust-item">
+                        <i class="bi bi-heart-pulse"></i>
+                        <div class="trust-text">
+                            <h6>100% Natural</h6>
+                            <p>Sin sintéticos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="trust-item">
+                        <i class="bi bi-hand-index-thumb"></i>
+                        <div class="trust-text">
+                            <h6>Artesanal</h6>
+                            <p>Hecho a mano</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row g-4 px-lg-5 mb-4">
-            <div class="col-md-6">
+    </div>
+
+    <!-- 2. BENEFICIOS -->
+    <section id="beneficios" class="container bg-light-section pt-5 mt-5">
+        <div class="text-center mb-5 pb-4">
+            <span class="text-uppercase fw-bold small" style="color: var(--bm-blue); letter-spacing: 2px;">Nuestra Farmacia Natural</span>
+            <h2 class="display-section mt-2 font-principal">El Poder de las 3 Fórmulas</h2>
+            <p class="text-muted mx-auto fs-5 fw-light font-secundaria" style="max-width: 700px;">Reemplazamos lo sintético por conocimiento herbolario. Cada gomita es un remedio ancestral adaptado a un estilo de vida moderno.</p>
+        </div>
+        
+        <div class="row g-5">
+            <div class="col-lg-4">
                 <div class="mv-card">
-                    <i class="bi bi-rocket-takeoff display-4 mb-3" style="color: var(--bm-turquoise);"></i>
-                    <h3 class="mb-3">Nuestra Misión</h3>
-                    <p class="text-muted">Ofrecer gomitas funcionales con ingredientes naturales que ayuden a estimular la mente y mejorar la concentración de manera práctica, agradable y accesible.</p>
+                    <h3 class="mb-2 font-principal" style="color: var(--bm-purple); font-size: 1.8rem;">Capricho Silvestre</h3>
+                    <p class="small text-uppercase fw-bold mb-4" style="color: #d96969; letter-spacing: 1px;">Fresa · Albahaca</p>
+                    <ul class="list-unstyled benefit-list text-muted">
+                        <li class="d-flex align-items-start"><div class="icon-box bg-icon-pink"><i class="bi bi-shield-plus"></i></div> <div><strong class="text-dark d-block mb-1">Regeneración Celular</strong> Antioxidantes que fortalecen tu sistema inmune.</div></li>
+                        <li class="d-flex align-items-start"><div class="icon-box bg-icon-green"><i class="bi bi-wind"></i></div> <div><strong class="text-dark d-block mb-1">Calma Digestiva</strong> La albahaca ayuda a calmar el estrés diario.</div></li>
+                        <li class="d-flex align-items-start"><div class="icon-box bg-icon-orange"><i class="bi bi-lightning-charge"></i></div> <div><strong class="text-dark d-block mb-1">Energía Limpia</strong> Azúcar morena para energía rápida sin pesadez.</div></li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-4">
                 <div class="mv-card">
-                    <i class="bi bi-eye-fill display-4 mb-3" style="color: var(--bm-pink);"></i>
-                    <h3 class="mb-3">Nuestra Visión</h3>
-                    <p class="text-muted">Convertirse en una marca reconocida por innovar en productos funcionales y naturales, siendo una opción confiable para personas que buscan bienestar y energía mental en su día a día.</p>
+                    <h3 class="mb-2 font-principal" style="color: var(--bm-turquoise); font-size: 1.8rem;">Muña Blue</h3>
+                    <p class="small text-uppercase fw-bold mb-4" style="color: var(--bm-purple); letter-spacing: 1px;">Arándano · Muña</p>
+                    <ul class="list-unstyled benefit-list text-muted">
+                        <li class="d-flex align-items-start"><div class="icon-box bg-icon-purple"><i class="bi bi-droplet-half"></i></div> <div><strong class="text-dark d-block mb-1">Defensa Urinaria</strong> Previene infecciones y actúa contra la oxidación.</div></li>
+                        <li class="d-flex align-items-start"><div class="icon-box bg-icon-turquoise"><i class="bi bi-lungs"></i></div> <div><strong class="text-dark d-block mb-1">Respiro Andino</strong> Alivia pesadez y despeja las vías respiratorias.</div></li>
+                        <li class="d-flex align-items-start"><div class="icon-box bg-icon-green"><i class="bi bi-check-circle"></i></div> <div><strong class="text-dark d-block mb-1">100% Sin Culpa</strong> Endulzado con estevia, sin alterar la glucosa.</div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="mv-card">
+                    <h3 class="mb-2 font-principal" style="color: #d96c3d; font-size: 1.8rem;">La Pócima</h3>
+                    <p class="small text-uppercase fw-bold mb-4 text-warning" style="letter-spacing: 1px;">Naranja · Wira Wira</p>
+                    <ul class="list-unstyled benefit-list text-muted">
+                        <li class="d-flex align-items-start"><div class="icon-box bg-icon-orange"><i class="bi bi-sun"></i></div> <div><strong class="text-dark d-block mb-1">Dosis Inmune Directa</strong> Vitamina C pura para mantener las defensas alerta.</div></li>
+                        <li class="d-flex align-items-start"><div class="icon-box bg-icon-purple"><i class="bi bi-flower3"></i></div> <div><strong class="text-dark d-block mb-1">El Remedio Ancestral</strong> Abriga los pulmones y suaviza la garganta irritada.</div></li>
+                        <li class="d-flex align-items-start"><div class="icon-box bg-icon-orange"><i class="bi bi-bandaid"></i></div> <div><strong class="text-dark d-block mb-1">Escudo Antibiótico</strong> Miel y propóleo actúan como cicatrizante natural.</div></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="beneficios" class="container py-0 my-5">
-        <div class="p-5 rounded-5 shadow-sm" style="background-color: var(--bm-blue); color: white;">
-            <div class="text-center mb-5">
-                <h2 class="text-white">Nuestros Tres Pilares</h2>
-                <p class="opacity-75">Formuladas para brindarte lo mejor en cada gomita.</p>
+    <!-- PROCESO ARTESANAL -->
+    <section id="proceso" class="container py-5">
+        <div class="text-center mb-5 pb-4">
+            <h2 class="display-section font-principal">Nuestro Proceso de Elaboración</h2>
+            <p class="text-muted mx-auto fs-5 fw-light font-secundaria" style="max-width: 600px;">Del huerto a tu paladar. Así garantizamos la pureza de Baya Mente.</p>
+        </div>
+        <div class="row text-center g-5 mt-3">
+            <div class="col-lg-4 step-line">
+                <div class="step-circle">1</div>
+                <h4 class="font-principal fs-5">Selección Botánica</h4>
+                <p class="text-muted small fw-light">Recolectamos muña, wira wira y frutas frescas de productores locales, asegurando ingredientes puros.</p>
             </div>
-            <div class="row text-center g-4">
-                <div class="col-md-4">
-                    <i class="bi bi-bullseye display-4 mb-3" style="color: var(--bm-pink);"></i>
-                    <h4 class="text-white">ENFOQUE</h4>
-                    <p class="small opacity-75">Apoya tu concentración de manera efectiva durante tus actividades cognitivas.</p>
+            <div class="col-lg-4 step-line">
+                <div class="step-circle">2</div>
+                <h4 class="font-principal fs-5">Extracción y Fusión</h4>
+                <p class="text-muted small fw-light">Extraemos los aceites esenciales mediante infusiones lentas y los mezclamos artesanalmente.</p>
+            </div>
+            <div class="col-lg-4">
+                <div class="step-circle"><i class="bi bi-box-seam"></i></div>
+                <h4 class="font-principal fs-5">Empaque Fresco</h4>
+                <p class="text-muted small fw-light">Sellamos cada lote de 50 gomitas inmediatamente para preservar el sabor y sus propiedades intactas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. CATÁLOGO / TIENDA CON PRECIOS ACTUALIZADOS -->
+    <section id="catalogo" class="container py-5 bg-light-section rounded-5">
+        <div class="text-center mb-5 pb-3 pt-5">
+            <span class="text-uppercase fw-bold small" style="color: var(--bm-blue); letter-spacing: 2px;">Nuestra Vitrina</span>
+            <h2 class="display-section mt-2 font-principal">Colección Gourmet</h2>
+            <p class="text-muted mx-auto fs-5 fw-light font-secundaria" style="max-width: 600px;">Elaboración artesanal bajo demanda.</p>
+        </div>
+
+        <div class="row justify-content-center g-5 px-lg-4 pb-5">
+            <!-- Capricho Silvestre (Fresa) -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card product-card h-100">
+                    <div class="product-img-wrapper bg-fresa"><i class="bi bi-heart-fill display-1" style="color: rgba(217, 105, 105, 0.8);"></i></div>
+                    <div class="card-body p-4 p-xl-5 d-flex flex-column text-start">
+                        <span class="tag-info" style="background: rgba(217, 105, 105, 0.1); color: #d96969;">Fresa · Albahaca</span>
+                        <h3 class="font-principal fw-bold mb-3">Capricho Silvestre</h3>
+                        <p class="text-muted fw-light mb-4 flex-grow-1 font-secundaria">Fusión de la jugosidad de la fresa con el toque sofisticado de la albahaca y azúcar morena.</p>
+                        <div class="mt-auto border-top pt-4 d-flex justify-content-between align-items-center">
+                            <span class="fw-bold fs-3 font-principal">Bs. 23.00</span>
+                            <button class="btn btn-bm-primary px-4 rounded-circle" style="width: 50px; height: 50px; padding: 0;" onclick="agregarAlCarrito('Capricho Silvestre (Fresa)', 23)"><i class="bi bi-plus-lg fs-4"></i></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <i class="bi bi-lightning-charge-fill display-4 mb-3" style="color: var(--bm-turquoise);"></i>
-                    <h4 class="text-white">ENERGÍA</h4>
-                    <p class="small opacity-75">Te ayuda a mantener tu día activo y productivo sin altibajos repentinos.</p>
+            </div>
+
+            <!-- Muña Blue (Arándano) -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card product-card h-100">
+                    <div class="product-img-wrapper bg-arandano"><i class="bi bi-droplet-fill display-1 text-white opacity-90"></i></div>
+                    <div class="card-body p-4 p-xl-5 d-flex flex-column text-start">
+                        <span class="tag-info bg-primary bg-opacity-10 text-primary">100% Sin Azúcar</span>
+                        <h3 class="font-principal fw-bold mb-3">Muña Blue</h3>
+                        <p class="text-muted fw-light mb-4 flex-grow-1 font-secundaria">Superalimento de arándano y muña diseñado para limpiar el organismo. Endulzado con estevia.</p>
+                        <div class="mt-auto border-top pt-4 d-flex justify-content-between align-items-center">
+                            <span class="fw-bold fs-3 font-principal">Bs. 23.80</span>
+                            <button class="btn btn-bm-primary px-4 rounded-circle" style="width: 50px; height: 50px; padding: 0;" onclick="agregarAlCarrito('Muña Blue (Arándano)', 23.8)"><i class="bi bi-plus-lg fs-4"></i></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <i class="bi bi-heart-pulse-fill display-4 mb-3" style="color: var(--bm-green);"></i>
-                    <h4 class="text-white">BIENESTAR</h4>
-                    <p class="small opacity-75">Favorece tu equilibrio mental y emocional mediante ingredientes seleccionados.</p>
+            </div>
+
+            <!-- La Pócima (Naranja) -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card product-card h-100">
+                    <div class="product-img-wrapper bg-naranja"><i class="bi bi-shield-fill-check display-1 text-white opacity-90"></i></div>
+                    <div class="card-body p-4 p-xl-5 d-flex flex-column text-start">
+                        <span class="tag-info" style="background: rgba(240,138,93,0.1); color: #d96c3d;">Miel y Propóleo</span>
+                        <h3 class="font-principal fw-bold mb-3">La Pócima</h3>
+                        <p class="text-muted fw-light mb-4 flex-grow-1 font-secundaria">Nuestra obra maestra con Naranja y Wira Wira, bañada en miel pura para crear tu mejor escudo.</p>
+                        <div class="mt-auto border-top pt-4 d-flex justify-content-between align-items-center">
+                            <span class="fw-bold fs-3 font-principal">Bs. 26.50</span>
+                            <button class="btn btn-bm-primary px-4 rounded-circle" style="width: 50px; height: 50px; padding: 0;" onclick="agregarAlCarrito('La Pócima (Naranja)', 26.5)"><i class="bi bi-plus-lg fs-4"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="catalogo" class="container py-5 my-5 border-top">
-        <div class="text-center mb-5 pb-3 pt-4">
-            <span class="text-uppercase fw-bold tracking-widest small" style="color: var(--bm-blue);">Nuestra Colección</span>
-            <h2 class="display-section mt-2">Elige tu Sabor Favorito</h2>
-            
-            <div class="d-flex justify-content-center mt-4 mb-5">
-                <ul class="nav nav-pills gap-2" id="flavorTabs" role="tablist">
-                    <li class="nav-item">
-                        <button class="nav-link nav-link-tab active" id="all-tab" data-bs-toggle="pill" data-bs-target="#tab-all" type="button">Todos los Sabores</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="nav-link nav-link-tab" id="clasicos-tab" data-bs-toggle="pill" data-bs-target="#tab-clasicos" type="button">Clásicos</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="nav-link nav-link-tab" id="temporada-tab" data-bs-toggle="pill" data-bs-target="#tab-temporada" type="button">Temporada</button>
-                    </li>
-                </ul>
-            </div>
+    <!-- TESTIMONIOS -->
+    <section class="container py-5">
+        <div class="text-center mb-5 pb-4">
+            <h2 class="display-section font-principal">Lo que dicen de nosotros</h2>
         </div>
-
-        <div class="tab-content px-lg-4" id="flavorTabsContent">
-            <div class="tab-pane fade show active" id="tab-all" role="tabpanel">
-                <div class="row g-4">
-                    
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card product-card h-100">
-                            <div class="product-img-wrapper bg-fresa">
-                                <i class="bi bi-heart-fill display-4" style="color: var(--bm-purple); opacity: 0.8;"></i>
-                            </div>
-                            <div class="card-body p-3 d-flex flex-column text-center">
-                                <h6 class="fw-bold mb-1">Gomitas Fresa</h6>
-                                <p class="text-muted small mb-3">Sabor auténtico</p>
-                                <div class="mt-auto border-top pt-2">
-                                    <span class="fw-bold fs-5 d-block mb-2">Bs. 15.00</span>
-                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Fresa', 15)">Añadir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card product-card h-100">
-                            <div class="product-img-wrapper bg-arandano">
-                                <i class="bi bi-lightning-charge-fill display-4 text-white opacity-75"></i>
-                            </div>
-                            <div class="card-body p-3 d-flex flex-column text-center">
-                                <h6 class="fw-bold mb-1">Gomitas Arándano</h6>
-                                <p class="text-muted small mb-3">Refrescante mental</p>
-                                <div class="mt-auto border-top pt-2">
-                                    <span class="fw-bold fs-5 d-block mb-2">Bs. 15.00</span>
-                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Arándano', 15)">Añadir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card product-card h-100">
-                            <div class="product-img-wrapper bg-pina">
-                                <i class="bi bi-sun-fill display-4 text-white opacity-90"></i>
-                            </div>
-                            <div class="card-body p-3 d-flex flex-column text-center">
-                                <h6 class="fw-bold mb-1">Gomitas Piña</h6>
-                                <p class="text-muted small mb-3">Toque tropical</p>
-                                <div class="mt-auto border-top pt-2">
-                                    <span class="fw-bold fs-5 d-block mb-2">Bs. 15.00</span>
-                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Piña', 15)">Añadir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card product-card h-100">
-                            <div class="product-img-wrapper bg-kiwi">
-                                <i class="bi bi-egg-fill display-4 text-white opacity-90"></i>
-                            </div>
-                            <div class="card-body p-3 d-flex flex-column text-center">
-                                <h6 class="fw-bold mb-1">Gomitas Kiwi</h6>
-                                <p class="text-muted small mb-3">Energía vibrante</p>
-                                <div class="mt-auto border-top pt-2">
-                                    <span class="fw-bold fs-5 d-block mb-2">Bs. 15.00</span>
-                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Kiwi', 15)">Añadir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card product-card h-100">
-                            <div class="product-img-wrapper bg-frutosrojos">
-                                <i class="bi bi-basket2-fill display-4 text-white opacity-90"></i>
-                            </div>
-                            <div class="card-body p-3 d-flex flex-column text-center">
-                                <h6 class="fw-bold mb-1">Frutos Rojos</h6>
-                                <p class="text-muted small mb-3">Dulzura intensa</p>
-                                <div class="mt-auto border-top pt-2">
-                                    <span class="fw-bold fs-5 d-block mb-2">Bs. 15.00</span>
-                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Frutos Rojos', 15)">Añadir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card product-card h-100">
-                            <div class="product-img-wrapper bg-platano">
-                                <i class="bi bi-moon-fill display-4 text-white opacity-90"></i>
-                            </div>
-                            <div class="card-body p-3 d-flex flex-column text-center">
-                                <h6 class="fw-bold mb-1">Gomitas Plátano</h6>
-                                <p class="text-muted small mb-3">Suave y relajante</p>
-                                <div class="mt-auto border-top pt-2">
-                                    <span class="fw-bold fs-5 d-block mb-2">Bs. 15.00</span>
-                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Plátano', 15)">Añadir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card product-card h-100 border border-info">
-                            <div class="product-img-wrapper bg-naranja">
-                                <span class="temporada-badge">Temporada</span>
-                                <i class="bi bi-brightness-high-fill display-4 text-white opacity-90"></i>
-                            </div>
-                            <div class="card-body p-3 d-flex flex-column text-center">
-                                <h6 class="fw-bold mb-1">Gomitas Naranja</h6>
-                                <p class="text-muted small mb-3">Cítrico revitalizante</p>
-                                <div class="mt-auto border-top pt-2">
-                                    <span class="fw-bold fs-5 d-block mb-2 text-info">Bs. 15.00</span>
-                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Naranja', 15)">Añadir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card product-card h-100 border border-info">
-                            <div class="product-img-wrapper bg-cereza">
-                                <span class="temporada-badge">Temporada</span>
-                                <i class="bi bi-flower1 display-4 text-white opacity-90"></i>
-                            </div>
-                            <div class="card-body p-3 d-flex flex-column text-center">
-                                <h6 class="fw-bold mb-1">Gomitas Cereza</h6>
-                                <p class="text-muted small mb-3">Acento especial</p>
-                                <div class="mt-auto border-top pt-2">
-                                    <span class="fw-bold fs-5 d-block mb-2 text-info">Bs. 15.00</span>
-                                    <button class="btn btn-bm-primary btn-sm w-100" onclick="agregarAlCarrito('Gomitas Cereza', 15)">Añadir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <p class="testimonial-text">"La Pócima me salvó en estos días fríos. Se siente el alivio en la garganta al instante por la miel y la wira wira."</p>
+                    <h6 class="testimonial-author">- Camila S.</h6>
                 </div>
             </div>
-            
-            <div class="tab-pane fade text-center py-5" id="tab-clasicos" role="tabpanel">
-                <h4 class="text-muted">Desliza en "Todos los Sabores" para ver nuestra línea de 6 sabores base permanentes.</h4>
+            <div class="col-lg-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
+                    <p class="testimonial-text">"Compré las de Capricho Silvestre para estudiar en la universidad y son increíbles. Tienen un sabor súper fresco."</p>
+                    <h6 class="testimonial-author">- Diego M.</h6>
+                </div>
             </div>
-
-            <div class="tab-pane fade text-center py-5" id="tab-temporada" role="tabpanel">
-                <h4 class="text-muted">Aprovecha nuestras ediciones limitadas de <span style="color: #f08a5d;">Naranja</span> y <span style="color: #9d0208;">Cereza</span> antes de que se agoten.</h4>
+            <div class="col-lg-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <p class="testimonial-text">"Me encanta que Muña Blue no tenga azúcar. Es perfecto para mi dieta keto y el sabor de la muña te despeja."</p>
+                    <h6 class="testimonial-author">- Valeria P.</h6>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="informacion" class="container mb-5">
-        <div class="row g-5 align-items-center">
-            <div class="col-lg-6">
-                <h2 class="display-section fs-1">Formulación y Calidad</h2>
-                <p class="text-muted mb-4">Gomitas con suplementos desarrolladas bajo estrictas especificaciones. Con azúcar natural de fruta y sin colorantes artificiales.</p>
+    <!-- 4. TABLAS NUTRICIONALES (CORREGIDAS A FONDO CLARO) -->
+    <section id="informacion" class="container mb-5 py-5">
+        <div class="text-center mb-5">
+            <h2 class="display-section font-principal fs-1">Información Nutrimental</h2>
+            <p class="text-muted font-secundaria">Valores exactos por envase (50 gomitas) calculados para tu etiqueta comercial.</p>
+        </div>
+
+        <ul class="nav nav-tabs justify-content-center mb-5" id="nutritionTabs">
+            <li class="nav-item"><button class="nav-link active" id="fresa-tab" data-bs-toggle="tab" data-bs-target="#fresa-pane" type="button">Capricho Silvestre</button></li>
+            <li class="nav-item"><button class="nav-link" id="arandano-tab" data-bs-toggle="tab" data-bs-target="#arandano-pane" type="button">Muña Blue</button></li>
+            <li class="nav-item"><button class="nav-link" id="naranja-tab" data-bs-toggle="tab" data-bs-target="#naranja-pane" type="button">La Pócima</button></li>
+        </ul>
+
+        <div class="tab-content" id="nutritionTabsContent">
+            <!-- TABLA 1: CAPRICHO SILVESTRE -->
+            <div class="tab-pane fade show active" id="fresa-pane">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="nutrition-card shadow-lg">
+                            <h4 class="mb-4 font-principal">Tabla Nutricional (Por Empaque de 50 Gomitas)</h4>
+                            <p class="small mb-4 text-muted font-secundaria"><strong>Información:</strong> Contenido neto: 97,5 g</p>
+                            <div class="table-responsive">
+                                <table class="table nutritional-table table-borderless mb-0 w-100">
+                                    <thead><tr><th class="w-50">Componente</th><th class="w-25 text-end">Cantidad</th><th class="w-25 text-end">% VD*</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold">Calorías</td><td class="text-end fw-bold">182,5 kcal</td><td class="text-end">--</td></tr>
+                                        <tr><td class="fw-bold">Proteínas</td><td class="text-end fw-bold">15,45 g</td><td class="text-end fw-bold">31%</td></tr>
+                                        <tr><td class="sub-ingredient">└ Colágeno hidrolizado</td><td class="text-end">7,50 g</td><td class="text-end">--</td></tr>
+                                        <tr><td class="sub-ingredient">└ Gelatina</td><td class="text-end">7,95 g</td><td class="text-end">--</td></tr>
+                                        <tr><td class="fw-bold">Carbohidratos Totales</td><td class="text-end fw-bold">31,30 g</td><td class="text-end fw-bold">11%</td></tr>
+                                        <tr><td class="sub-ingredient">└ Azúcares añadidos</td><td class="text-end">30,00 g</td><td class="text-end fw-bold">60%</td></tr>
+                                        <tr><td class="fw-bold">Grasas Totales / Sodio</td><td class="text-end fw-bold">0,10 g / 22,5mg</td><td class="text-end fw-bold">0% / 1%</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLA 2: MUÑA BLUE -->
+            <div class="tab-pane fade" id="arandano-pane">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="nutrition-card shadow-lg">
+                            <h4 class="mb-4 font-principal">Tabla Nutricional (Por Empaque de 50 Gomitas)</h4>
+                            <p class="small mb-4 text-muted font-secundaria"><strong>Información:</strong> Contenido neto: 67,5 g netos</p>
+                            <div class="table-responsive">
+                                <table class="table nutritional-table table-borderless mb-0 w-100">
+                                    <thead><tr><th class="w-50">Componente</th><th class="w-25 text-end">Cantidad</th><th class="w-25 text-end">% VD*</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold">Calorías</td><td class="text-end fw-bold">68 kcal</td><td class="text-end">--</td></tr>
+                                        <tr><td class="fw-bold">Proteínas</td><td class="text-end fw-bold">15,4 g</td><td class="text-end fw-bold">31%</td></tr>
+                                        <tr><td class="sub-ingredient">└ Colágeno hidrolizado</td><td class="text-end">7,5 g</td><td class="text-end">--</td></tr>
+                                        <tr><td class="sub-ingredient">└ Gelatina</td><td class="text-end">7,9 g</td><td class="text-end">--</td></tr>
+                                        <tr><td class="fw-bold">Carbohidratos Totales</td><td class="text-end fw-bold">3,6 g</td><td class="text-end fw-bold">1%</td></tr>
+                                        <tr><td class="sub-ingredient">└ Azúcares añadidos</td><td class="text-end text-info fw-bold">0,0 g</td><td class="text-end fw-bold text-info">0%</td></tr>
+                                        <tr><td class="fw-bold">Grasas Totales / Sodio</td><td class="text-end fw-bold">0,1 g / 22,5mg</td><td class="text-end fw-bold">0% / 1%</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLA 3: LA PÓCIMA -->
+            <div class="tab-pane fade" id="naranja-pane">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="nutrition-card shadow-lg">
+                            <h4 class="mb-4 font-principal">Tabla Nutricional (Por Empaque de 50 Gomitas)</h4>
+                            <p class="small mb-4 text-muted font-secundaria"><strong>Información:</strong> Contenido neto: 100 g netos</p>
+                            <div class="table-responsive">
+                                <table class="table nutritional-table table-borderless mb-0 w-100">
+                                    <thead><tr><th class="w-50">Componente</th><th class="w-25 text-end">Cantidad</th><th class="w-25 text-end">% VD*</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold">Calorías</td><td class="text-end fw-bold">145 kcal</td><td class="text-end">--</td></tr>
+                                        <tr><td class="fw-bold">Proteínas</td><td class="text-end fw-bold">15,4 g</td><td class="text-end fw-bold">31%</td></tr>
+                                        <tr><td class="sub-ingredient">└ Colágeno hidrolizado</td><td class="text-end">7,5 g</td><td class="text-end">--</td></tr>
+                                        <tr><td class="sub-ingredient">└ Gelatina</td><td class="text-end">7,9 g</td><td class="text-end">--</td></tr>
+                                        <tr><td class="fw-bold">Carbohidratos Totales</td><td class="text-end fw-bold">20,3 g</td><td class="text-end fw-bold">7%</td></tr>
+                                        <tr><td class="sub-ingredient">└ Azúcares añadidos (Miel)</td><td class="text-end">18,4 g</td><td class="text-end fw-bold">37%</td></tr>
+                                        <tr><td class="fw-bold">Grasas Totales / Sodio</td><td class="text-end fw-bold">0,1 g / 22,5mg</td><td class="text-end fw-bold">0% / 1%</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES (FAQ) -->
+    <section class="container mb-5 pb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <h2 class="display-section font-principal fs-1">Preguntas Frecuentes</h2>
+                    <p class="text-muted font-secundaria">Todo lo que necesitas saber antes de hacer tu pedido.</p>
+                </div>
                 
-                <div class="accordion shadow-sm" id="nutritionAccordion">
+                <div class="accordion" id="faqAccordion">
                     <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                <i class="bi bi-list-check me-2 text-primary"></i> Ingredientes Oficiales
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#nutritionAccordion">
-                            <div class="accordion-body text-muted small">
-                                Jarabe de glucosa, azúcar, gelatina, agua purificada, ácido cítrico, saborizante natural, <strong>vitamina C (ácido ascórbico)</strong>, <strong>colina (bitartrato de colina)</strong>, <strong>cafeína natural</strong>, colorante natural, aceite vegetal (coco) y cera de carnauba (brillo natural).
+                        <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">¿Cómo y dónde realizan los envíos?</button></h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted fw-light font-secundaria">
+                                Realizamos envíos de manera ágil en las ciudades de <strong>La Paz y El Alto</strong>. Una vez confirmado tu pedido, coordinamos el punto de entrega o delivery directo hasta tu ubicación.
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                <i class="bi bi-exclamation-triangle me-2 text-warning"></i> Advertencias y Uso Recomendado
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#nutritionAccordion">
-                            <div class="accordion-body text-muted small">
-                                <strong>Modo de Consumo:</strong> Consumir 2 gomitas al día, preferiblemente en la mañana.<br><br>
-                                <em>ESTE PRODUCTO NO ES UN MEDICAMENTO. No exceder la porción recomendada. No recomendado para menores de 12 años, mujeres embarazadas o en lactancia.</em>
+                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">¿Qué métodos de pago aceptan?</button></h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted fw-light font-secundaria">
+                                Aceptamos transferencias bancarias, Yape Bolivia, BCP y pagos mediante código QR. También puedes pagar en efectivo a contra entrega al recibir tu producto.
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="bg-light p-4 rounded-4 border">
-                    <h5 class="mb-2 text-uppercase tracking-wider font-monospace text-center fs-6">Información Nutricional</h5>
-                    <p class="text-center small text-muted mb-3">Tamaño de porción: 2 gomitas (10 g) | Porciones: 15</p>
-                    <table class="table nutritional-table table-bordered mb-0 bg-white small">
-                        <thead>
-                            <tr>
-                                <th>Nutriente</th>
-                                <th>Por Porción</th>
-                                <th>% VD*</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Energía</td><td>35 kcal</td><td>-</td></tr>
-                            <tr><td>Carbohidratos</td><td>8 g</td><td>3%</td></tr>
-                            <tr><td>Azúcares</td><td>6 g</td><td>**</td></tr>
-                            <tr><td>Proteínas / Grasas totales</td><td>0 g</td><td>0%</td></tr>
-                            <tr><td>Sodio</td><td>5 mg</td><td>0%</td></tr>
-                            <tr><td class="fw-bold">Vitamina C</td><td class="fw-bold">60 mg</td><td class="fw-bold">67%</td></tr>
-                            <tr><td class="fw-bold">Colina</td><td class="fw-bold">100 mg</td><td class="fw-bold">18%</td></tr>
-                            <tr><td class="fw-bold">Cafeína natural</td><td class="fw-bold">25 mg</td><td class="fw-bold">**</td></tr>
-                        </tbody>
-                    </table>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">¿Las gomitas tienen contraindicaciones?</button></h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted fw-light font-secundaria">
+                                Al ser elaboradas con botánica ancestral 100% natural, no tienen efectos secundarios adversos. En el caso de "La Pócima" (contiene miel) se recomienda no administrar a menores de 1 año.
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
-        <div class="container">
-            <div class="row g-4 mb-4">
-                <div class="col-lg-4">
-                    <h4 class="text-white mb-3">Baya<span style="color: var(--bm-turquoise);">Mente</span></h4>
-                    <p class="small text-white-50" style="max-width: 300px;">Optimización cognitiva natural hecha en Bolivia. Potencia tu productividad sin comprometer tu bienestar emocional.</p>
+        <div class="container px-4">
+            <div class="row g-5 mb-5">
+                <div class="col-lg-4 pe-lg-5">
+                    <h4 class="mb-4 font-principal fs-2">Baya<span style="color: var(--bm-turquoise);">Mente</span></h4>
+                    <p class="fw-light font-secundaria" style="max-width: 300px; line-height: 1.8;">Gomitas artesanales, saludables y elaboradas con herbolaria andina. El cuidado que tu cuerpo merece.</p>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <h5>Atención al Cliente</h5>
-                    <p class="small text-white-50 mb-2"><i class="bi bi-geo-alt me-2"></i>La Paz, Bolivia</p>
-                    <p class="small text-white-50 mb-2"><i class="bi bi-telephone me-2"></i>+591 64130673</p>
-                    <p class="small text-white-50"><i class="bi bi-envelope me-2"></i>bayamente.bo@gmail.com</p>
+                    <h5 class="font-principal">Atención al Cliente</h5>
+                    <ul class="list-unstyled fw-light font-secundaria">
+                        <li class="mb-3"><i class="bi bi-geo-alt me-3 text-white-50"></i>La Paz / El Alto, Bolivia</li>
+                        <li class="mb-3"><i class="bi bi-telephone me-3 text-white-50"></i>+591 64130673</li>
+                        <li><i class="bi bi-envelope me-3 text-white-50"></i>bayamente.bo@gmail.com</li>
+                    </ul>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <h5>Redes Oficiales</h5>
-                    <div class="d-flex gap-3 fs-4 text-white-50">
+                    <h5 class="font-principal">Comunidad</h5>
+                    <div class="social-icons mt-3">
                         <a href="#"><i class="bi bi-instagram"></i></a>
                         <a href="#"><i class="bi bi-tiktok"></i></a>
                         <a href="#"><i class="bi bi-facebook"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="pt-4 border-top border-secondary border-opacity-25 text-center text-white-50 small">
-                &copy; 2026 BAYA MENTE. Lote: BG-0526-01 | Emprendimiento de bienestar.
+            <div class="pt-4 border-top border-light border-opacity-10 text-center text-white-50 small fw-light font-secundaria">
+                &copy; 2026 BAYA MENTE. Emprendimiento de bienestar.
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/59164130673" target="_blank" class="whatsapp-float" title="¡Escríbenos por WhatsApp!">
-        <i class="bi bi-whatsapp"></i>
-    </a>
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/59164130673" target="_blank" class="whatsapp-float" title="¡Haz tu pedido por WhatsApp!"><i class="bi bi-whatsapp"></i></a>
 
-    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1080;">
-        <div id="cartToast" class="toast align-items-center text-white bg-success border-0 shadow-lg" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="d-flex">
-                <div class="toast-body fw-bold">
-                    <i class="bi bi-check-circle me-2"></i> ¡Gomitas agregadas a tu pedido!
-                </div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    <!-- TOAST -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-4" style="z-index: 1080;">
+        <div id="cartToast" class="toast align-items-center text-white bg-dark border-0 shadow-lg rounded-4" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex p-2">
+                <div class="toast-body fw-bold fs-6 font-secundaria"><i class="bi bi-check-circle-fill text-success me-2 fs-5 align-middle"></i> Añadido a tu bolsa.</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
             </div>
         </div>
     </div>
 
+    <!-- MODAL DE CHECKOUT -->
     <div class="modal fade" id="checkoutModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered">
-            <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
-                <div class="modal-header text-white" style="background-color: var(--bm-purple);">
-                    <h5 class="modal-title fw-bold">
-                        <i class="bi bi-cart-check me-2"></i> Finalizar Pedido
-                    </h5>
+            <div class="modal-content border-0 rounded-5 shadow-lg overflow-hidden">
+                <div class="modal-header text-white px-5 py-4" style="background: linear-gradient(90deg, var(--bm-purple), #4a3e8c);">
+                    <h4 class="modal-title font-principal mb-0"><i class="bi bi-bag-heart me-2"></i> Finalizar Pedido</h4>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body p-5 bg-light">
+                <div class="modal-body p-5 bg-light font-secundaria">
                     <div class="row g-5">
                         <div class="col-md-5 order-md-2">
-                            <div class="bg-white p-4 rounded-4 shadow-sm h-100 border">
-                                <h5 class="fw-bold mb-4" style="color: var(--bm-blue);">Resumen de Compra</h5>
+                            <div class="bg-white p-4 p-xl-5 rounded-4 shadow-sm h-100 border border-light-subtle">
+                                <h5 class="fw-bold mb-4 font-principal fs-4">Tu Selección</h5>
                                 <ul class="list-group list-group-flush mb-4" id="lista-carrito-modal"></ul>
-                                <div class="d-flex justify-content-between align-items-center border-top pt-3 mb-2">
-                                    <span class="text-muted">Envío Estándar</span>
-                                    <span class="text-success fw-bold">Gratis</span>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
-                                    <span class="fw-bold fs-5">Total Neto</span>
-                                    <span class="fs-3 fw-bold" style="color: var(--bm-turquoise);">Bs. <span id="total-carrito-modal">0</span></span>
-                                </div>
+                                <div class="d-flex justify-content-between align-items-center border-top pt-4 mb-3"><span class="text-muted fw-light">Envío Estándar</span><span class="text-success fw-bold">Gratis</span></div>
+                                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-2"><span class="fw-bold fs-5">Total Neto</span><span class="fs-2 font-principal fw-bold" style="color: var(--bm-purple);">Bs. <span id="total-carrito-modal">0.00</span></span></div>
                             </div>
                         </div>
 
                         <div class="col-md-7 order-md-1">
-                            <h5 class="fw-bold mb-4" style="color: var(--bm-purple);">Datos de Entrega</h5>
-                            <form id="formCheckout">
+                            <h5 class="fw-bold mb-4 font-principal fs-4">Datos de Entrega</h5>
+                            <form id="formCheckout" class="fw-light">
                                 <div class="mb-4">
-                                    <label class="form-label small fw-bold text-muted">Nombre Completo</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-white"><i class="bi bi-person"></i></span>
-                                        <input type="text" class="form-control fs-6" id="clienteNombre" required>
-                                    </div>
+                                    <label class="form-label small fw-bold text-muted text-uppercase">Nombre Completo</label>
+                                    <input type="text" class="form-control form-control-lg bg-white border-0 shadow-sm py-3 px-4 rounded-4" id="clienteNombre" required placeholder="Ej: María Pérez">
                                 </div>
                                 <div class="row g-4 mb-4">
-                                    <div class="col-md-6">
-                                        <label class="form-label small fw-bold text-muted">Teléfono</label>
-                                        <div class="input-group input-group-lg">
-                                            <span class="input-group-text bg-white"><i class="bi bi-telephone"></i></span>
-                                            <input type="tel" class="form-control fs-6" id="clienteTelefono" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label small fw-bold text-muted">Correo</label>
-                                        <div class="input-group input-group-lg">
-                                            <span class="input-group-text bg-white"><i class="bi bi-envelope"></i></span>
-                                            <input type="email" class="form-control fs-6" id="clienteCorreo" required>
-                                        </div>
-                                    </div>
+                                    <div class="col-md-6"><label class="form-label small fw-bold text-muted text-uppercase">Teléfono</label><input type="tel" class="form-control form-control-lg bg-white border-0 shadow-sm py-3 px-4 rounded-4" id="clienteTelefono" required placeholder="Ej: 60000000"></div>
+                                    <div class="col-md-6"><label class="form-label small fw-bold text-muted text-uppercase">Correo</label><input type="email" class="form-control form-control-lg bg-white border-0 shadow-sm py-3 px-4 rounded-4" id="clienteCorreo" required placeholder="correo@ejemplo.com"></div>
                                 </div>
                                 <div class="mb-4">
-                                    <label class="form-label small fw-bold text-muted">Dirección</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-white"><i class="bi bi-geo-alt"></i></span>
-                                        <input type="text" class="form-control fs-6" id="clienteDireccion" required>
-                                    </div>
+                                    <label class="form-label small fw-bold text-muted text-uppercase">Dirección en La Paz / El Alto</label>
+                                    <input type="text" class="form-control form-control-lg bg-white border-0 shadow-sm py-3 px-4 rounded-4" id="clienteDireccion" required placeholder="Calle, Zona, Número...">
                                 </div>
-                                <div class="mb-4">
-                                    <label class="form-label small fw-bold text-muted">Método de Pago</label>
-                                    <select class="form-select form-select-lg fs-6" id="clientePago" required>
+                                <div class="mb-5">
+                                    <label class="form-label small fw-bold text-muted text-uppercase">Método de Pago</label>
+                                    <select class="form-select form-select-lg bg-white border-0 shadow-sm py-3 px-4 rounded-4 text-muted" id="clientePago" required>
                                         <option value="" selected disabled>Selecciona una opción...</option>
-                                        <option value="QR">Transferencia Bancaria / QR</option>
+                                        <option value="QR">Transferencia Bancaria (Yape / BCP / QR)</option>
                                         <option value="Efectivo">Efectivo contra entrega</option>
                                     </select>
+                                </div>
+                                <div class="d-flex justify-content-end gap-3 mt-4">
+                                    <button type="button" class="btn text-muted fw-bold px-4" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-bm-primary px-5 py-3 shadow-lg" onclick="procesarCompra()">Confirmar Pedido <i class="bi bi-arrow-right ms-2"></i></button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer bg-white border-top-0 pt-0 pb-4 px-5 justify-content-between">
-                    <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Seguir Comprando</button>
-                    <button type="button" class="btn btn-bm-primary px-5 m-0" onclick="procesarCompra()">Procesar Orden <i class="bi bi-check-circle ms-2"></i></button>
-                </div>
             </div>
         </div>
     </div>
 
+    <!-- SCRIPT (ACTUALIZADO PARA DECIMALES) -->
     <script>
         let carrito = [];
         const generarId = () => Date.now().toString() + Math.random().toString(36).substr(2, 5);
-
-        // Actualiza el número de productos en el botón
-        function actualizarContador() { 
-            document.getElementById('cart-count').innerText = carrito.length; 
+        function actualizarContador() { document.getElementById('cart-count').innerText = carrito.length; }
+        function mostrarToast() { const toastEl = document.getElementById('cartToast'); const toast = new bootstrap.Toast(toastEl, { delay: 3000 }); toast.show(); }
+        
+        function agregarAlCarrito(nombreProducto, precio) { 
+            // Aseguramos que el precio se guarde como número
+            carrito.push({ id: generarId(), producto: nombreProducto, precio: parseFloat(precio) }); 
+            actualizarContador(); 
+            mostrarToast(); 
         }
-
-        // Muestra la alerta elegante (Toast)
-        function mostrarToast() {
-            const toastEl = document.getElementById('cartToast');
-            const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
-            toast.show();
-        }
-
-        function agregarAlCarrito(nombreProducto, precio) {
-            carrito.push({ id: generarId(), producto: nombreProducto, precio: precio });
-            actualizarContador();
-            
-            // Llama al aviso visual nuevo
-            mostrarToast();
-
-            // Animación del botón principal
-            const btnCart = document.querySelector('.btn-bm-primary.position-relative');
-            btnCart.classList.add('shadow-lg');
-            setTimeout(() => btnCart.classList.remove('shadow-lg'), 300);
-        }
-
-        function eliminarDelCarrito(idAEliminar) {
-            carrito = carrito.filter(item => item.id !== idAEliminar);
-            actualizarContador();
+        
+        function eliminarDelCarrito(idAEliminar) { 
+            carrito = carrito.filter(item => item.id !== idAEliminar); 
+            actualizarContador(); 
             renderizarListaCarrito(); 
         }
-
+        
         function renderizarListaCarrito() {
-            const listaHTML = document.getElementById('lista-carrito-modal');
+            const listaHTML = document.getElementById('lista-carrito-modal'); 
             const totalHTML = document.getElementById('total-carrito-modal');
             listaHTML.innerHTML = ''; 
             let total = 0;
-
-            if (carrito.length === 0) {
-                listaHTML.innerHTML = '<li class="list-group-item text-center text-muted border-0">Tu bolsa está vacía</li>';
+            
+            if (carrito.length === 0) { 
+                listaHTML.innerHTML = '<li class="list-group-item text-center text-muted border-0 py-4">Tu bolsa está vacía</li>'; 
             } else {
                 carrito.forEach((item) => {
                     total += item.precio;
-                    listaHTML.innerHTML += `
-                        <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-2 bg-transparent border-secondary border-opacity-10">
-                            <span class="fw-bold text-dark fs-6">${item.producto}</span>
-                            <div class="d-flex align-items-center gap-2">
-                                <span class="badge rounded-pill fs-6" style="background-color: var(--bm-pink); color: var(--bm-purple);">Bs. ${item.precio}.00</span>
-                                <button type="button" class="btn-bm-danger-outline" onclick="eliminarDelCarrito('${item.id}')" title="Quitar">
-                                    <i class="bi bi-trash3"></i>
-                                </button>
-                            </div>
-                        </li>
-                    `;
+                    // Se usa toFixed(2) para mostrar siempre dos decimales (ej: 26.50)
+                    listaHTML.innerHTML += `<li class="list-group-item d-flex justify-content-between align-items-center px-0 py-3 bg-transparent border-light-subtle"><div><span class="fw-bold text-dark d-block">${item.producto}</span><span class="text-muted small">Cantidad: 1</span></div><div class="d-flex align-items-center gap-3"><span class="fw-bold font-principal fs-5" style="color: var(--bm-purple);">Bs. ${item.precio.toFixed(2)}</span><button type="button" class="btn text-danger p-1" onclick="eliminarDelCarrito('${item.id}')" title="Quitar"><i class="bi bi-x-circle-fill fs-5"></i></button></div></li>`;
                 });
             }
-            totalHTML.innerText = total + ".00";
+            // El total también se formatea a dos decimales
+            totalHTML.innerText = total.toFixed(2);
         }
-
-        function abrirCarrito() {
-            renderizarListaCarrito();
-            const modalCheckout = new bootstrap.Modal(document.getElementById('checkoutModal'));
-            modalCheckout.show();
+        
+        function abrirCarrito() { 
+            renderizarListaCarrito(); 
+            const modalCheckout = new bootstrap.Modal(document.getElementById('checkoutModal')); 
+            modalCheckout.show(); 
         }
-
+        
         function procesarCompra() {
-            if(carrito.length === 0) {
-                alert("Agrega al menos un producto.");
-                return;
-            }
+            if(carrito.length === 0) { alert("Agrega al menos un producto."); return; }
             const form = document.getElementById('formCheckout');
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return;
-            }
-            alert("¡Pedido Registrado con Éxito!\nYa podemos conectar este formulario a tu Base de Datos en Excel.");
-            carrito = [];
-            actualizarContador();
-            form.reset();
-            bootstrap.Modal.getInstance(document.getElementById('checkoutModal')).hide();
+            if (!form.checkValidity()) { form.reportValidity(); return; }
+            alert("¡Pedido Registrado con Éxito!\nAhora podemos conectar los pedidos a la Base de Datos.");
+            carrito = []; actualizarContador(); form.reset(); bootstrap.Modal.getInstance(document.getElementById('checkoutModal')).hide();
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
